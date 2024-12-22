@@ -1,0 +1,18 @@
+<!-- create a nav left - text logo and right side  page nav , products and cart, checkout -->
+<nav class="bg-gray-800 text-white p-4 flex justify-between fixed top-0 left-0 right-0 z-50">
+  <div class="w-full max-w-[1270px] mx-auto py-2 flex justify-between">
+    <!-- Left side nav -->
+    <div class="flex items-center">
+      <a @click="currentScreen = 'home'" class="text-3xl font-bold cursor-pointer" x-text="apptitle"></a>
+    </div>
+
+    <!-- Right side nav -->
+    <div class="flex items-center space-x-4">
+      <a class="cursor-pointer" @click="currentScreen = 'home'">Home</a>
+      <a class="cursor-pointer" @click="currentScreen = 'cart'">Cart <span x-show="cartItems.length > 0"
+          class="text-white">(<span class="item-count" x-text="cartItems.length"></span>)</span></a>
+      <a class="cursor-pointer" @click="currentScreen = 'checkout'">Checkout</a>
+    </div>
+  </div>
+</nav>
+<div class="h-5"></div>
