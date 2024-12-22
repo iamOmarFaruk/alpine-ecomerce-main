@@ -1,0 +1,14 @@
+- we will make a product list page. All product will be display by x-for alpine
+- the have a button to add to cart
+- when click on add to cart button, it will add to cart and update the cart count
+
+-  there will be a cart page where all the product will be display, with the total price
+- user can change the quantity of the product and the total price will be updated
+
+- finally there will be a checkout page where user can enter their information and place order
+
+- after placing order, user will be redirected to a thank you page
+
+- for add to cart , we can use local storage so that we can save the cart data even if the user refresh the page
+- everything will be done using alpine js and tailwind css
+
