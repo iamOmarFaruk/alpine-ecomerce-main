@@ -1,23 +1,21 @@
-<!-- create a nav left - text logo and right side page nav, products and cart, checkout -->
 <nav class="bg-green-800 text-white p-4 flex justify-between fixed top-0 left-0 right-0 z-50">
   <div class="w-full max-w-[1270px] mx-auto py-2 flex justify-between">
     <!-- Left side nav -->
     <div class="flex items-center">
-      <a @click="currentScreen = 'home'" class="text-3xl font-bold cursor-pointer" x-text="apptitle"></a>
+      <a @click="navigate('home')" class="text-3xl font-bold cursor-pointer" x-text="getTitle()"></a>
     </div>
 
     <!-- Right side nav -->
     <div class="flex items-center space-x-4">
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="currentScreen = 'home'">Home</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="currentScreen = 'about'">About</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="currentScreen = 'shop'">Shop</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="currentScreen = 'faq'">FAQ</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="currentScreen = 'cart'">
+      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('home')">Home</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('about')">About</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('shop')">Shop</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('faq')">FAQ</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('cart')">
         Cart <span x-show="cartItems.length > 0" class="text-white">(<span class="item-count"
             x-text="cartItems.length"></span>)</span>
       </a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="currentScreen = 'contact'">Contact</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('contact')">Contact</a>
     </div>
   </div>
 </nav>
-<div class="h-5"></div>

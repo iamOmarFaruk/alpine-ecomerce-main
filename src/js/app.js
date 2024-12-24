@@ -1,7 +1,7 @@
 // alpine init within event listener
 addEventListener("alpine:init", () => {
   Alpine.data("app", () => ({
-    currentScreen: "home",
+    currentScreen: localStorage.getItem("currentScreen") || "home",
     getTitle() {
       const titles = {
         home: "Welcome to Our Shop",
@@ -13,6 +13,11 @@ addEventListener("alpine:init", () => {
       };
       return titles[this.currentScreen] || "Default Title";
     },
+    navigate(screen) {
+      this.currentScreen = screen; // Update current screen
+      localStorage.setItem("currentScreen", screen); // Save to localStorage
+    },
+
     apptitle: "Alpine Shop",
     AddToCartToast: false,
     RemoveFromCartToast: false,
@@ -223,6 +228,8 @@ addEventListener("alpine:init", () => {
     currentYear: "",
     scrollToTop: false,
     init() {
+     
+      // get the current year
       this.currentYear = new Date().getFullYear();
 
       // scroll to top, if user scrolls down 70% or more then scrollToTop make true
