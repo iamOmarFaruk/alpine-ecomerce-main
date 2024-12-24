@@ -2,6 +2,17 @@
 addEventListener("alpine:init", () => {
   Alpine.data("app", () => ({
     currentScreen: "home",
+    getTitle() {
+      const titles = {
+        home: "Welcome to Our Shop",
+        about: "About Us",
+        shop: "Explore Our Products",
+        faq: "Frequently Asked Questions",
+        cart: "Your Shopping Cart",
+        contact: "Contact Us",
+      };
+      return titles[this.currentScreen] || "Default Title";
+    },
     apptitle: "Alpine Shop",
     AddToCartToast: false,
     RemoveFromCartToast: false,
