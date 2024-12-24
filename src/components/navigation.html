@@ -7,15 +7,21 @@
 
     <!-- Right side nav -->
     <div class="flex items-center space-x-4">
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('home')">Home</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('about')">About</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('shop')">Shop</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('faq')">FAQ</a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('cart')">
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'home'}" @click="navigate('home')">Home</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'about'}" @click="navigate('about')">About</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'shop'}" @click="navigate('shop')">Shop</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'faq'}" @click="navigate('faq')">FAQ</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'cart'}" @click="navigate('cart')">
         Cart <span x-show="cartItems.length > 0" class="text-white">(<span class="item-count"
             x-text="cartItems.length"></span>)</span>
       </a>
-      <a class="cursor-pointer hover:text-gray-300 transition-colors" @click="navigate('contact')">Contact</a>
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'contact'}" @click="navigate('contact')">Contact</a>
     </div>
   </div>
 </nav>
