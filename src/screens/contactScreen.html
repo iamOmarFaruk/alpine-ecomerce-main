@@ -6,55 +6,56 @@
   <!-- Hero section with background image and soft overlay -->
   <div x-html="(await axios.get('./components/heroSection.html')).data"></div>
 
-  <div class="py-10">
-    <div class="grid sm:grid-cols-2 items-start gap-16 p-4 mx-auto max-w-4xl bg-white font-[sans-serif]">
-      <!-- Form Section -->
-      <div x-html="(await axios.get('./components/form.html')).data"></div>
-      <!-- Contact Section -->
-      <div>
-        <h1 class="text-gray-800 text-3xl font-extrabold">Let's Talk</h1>
-        <p class="text-base  mt-4 leading-relaxed">
+<div class="py-20">
+  <div class="grid lg:grid-cols-2 items-center gap-8 p-6 mx-auto max-w-6xl bg-white font-[sans-serif]">
+    <!-- Form Section -->
+    <div x-html="(await axios.get('./components/form.html')).data"></div>
+
+    <!-- Contact Section -->
+    <div>
+      <h1 class="text-gray-800 text-3xl font-extrabold">Let's Talk</h1>
+      <p class="text-base mt-4 leading-relaxed">
         Hi, I’m Omar Faruk
         Bringing expertise in modern web and mobile app development, from React and Flutter to Python Django and .NET.
-        
         I specialize in delivering cutting-edge solutions using technologies like React, React Native, Flutter, Next.js,
-        Nest.js, PHP, WordPress, Laravel, and more. Whether it’s a full-stack application, backend development, or a custom
-        project, I transform ideas into impactful results. Let’s work together to make your next project a success!
-        </p>
+        Nest.js, PHP, WordPress, Laravel, and more. Whether it’s a full-stack application, backend development, or a
+        custom project, I transform ideas into impactful results. Let’s work together to make your next project a
+        success!
+      </p>
 
-        <!-- Email and Phone -->
-        <div class="mt-5">
-          <h2 class="text-gray-800 text-base font-bold">Contact</h2>
-<ul class="mt-4 flex flex-col">
-  <!-- Email -->
-  <li class="flex items-center mb-5">
-    <div class="bg-green-800 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-      <i class="fas fa-envelope text-white text-lg"></i> <!-- Font Awesome Email Icon -->
-    </div>
-    <a href="mailto:omarbg.bd@gmail.com" class="text-green-800 text-sm ml-4">
-      <small class="block">Mail</small>
-      <strong>omarbg.bd@gmail.com</strong>
-    </a>
-  </li>
+      <!-- Email and Phone -->
+      <div class="mt-8">
+        <h2 class="text-gray-800 text-base font-bold">Contact</h2>
+        <ul class="mt-4 space-y-6">
+          <!-- Email -->
+          <li class="flex items-center">
+            <div class="bg-green-800 h-12 w-12 rounded-full flex items-center justify-center shrink-0">
+              <i class="fas fa-envelope text-white text-xl"></i> <!-- Font Awesome Email Icon -->
+            </div>
+            <a href="mailto:omarbg.bd@gmail.com" class="text-green-800 text-sm ml-4">
+              <small class="block">Mail</small>
+              <strong>omarbg.bd@gmail.com</strong>
+            </a>
+          </li>
 
-  <!-- LinkedIn -->
-  <li class="flex items-center mb-5">
-    <div class="bg-green-800 h-10 w-10 rounded-full flex items-center justify-center shrink-0">
-      <i class="fab fa-linkedin-in text-white text-lg"></i> <!-- Font Awesome LinkedIn Icon -->
-    </div>
-    <a href="https://www.linkedin.com/in/omar-expert-webdeveloper/" target="_blank" class="text-green-800 text-sm ml-4">
-      <small class="block">LinkedIn</small>
-      <strong>Omar Faruk</strong>
-    </a>
-  </li>
-</ul>
-
-
-        </div>
-
-
-
+          <!-- LinkedIn -->
+          <li class="flex items-center">
+            <div class="bg-green-800 h-12 w-12 rounded-full flex items-center justify-center shrink-0">
+              <i class="fab fa-linkedin-in text-white text-xl"></i> <!-- Font Awesome LinkedIn Icon -->
+            </div>
+            <a href="https://www.linkedin.com/in/omar-expert-webdeveloper/" target="_blank"
+              class="text-green-800 text-sm ml-4">
+              <small class="block">LinkedIn</small>
+              <strong>Omar Faruk</strong>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
+</div>
+
+
+
+
 </div>

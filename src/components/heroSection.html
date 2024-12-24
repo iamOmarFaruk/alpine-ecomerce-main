@@ -1,20 +1,24 @@
-<div class="relative bg-gray-800 rounded-lg shadow-lg text-white text-center mt-28  overflow-hidden">
+<div class="relative bg-gray-800 rounded-lg shadow-lg text-white text-center mt-28 overflow-hidden">
   <!-- Background image -->
   <div class="absolute inset-0 bg-cover bg-center rounded-lg"
     style="background-image: url('https://images.unsplash.com/photo-1605522283494-4901a98d458e?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
   </div>
 
   <!-- Overlay -->
-  <div class="absolute inset-0 bg-black bg-opacity-50 rounded-lg"></div>
+  <div class="absolute inset-0 bg-black bg-opacity-30 rounded-lg"></div>
 
   <!-- Content -->
   <div class="relative z-10 p-20">
-    <h1 class="text-6xl font-bold mb-5" x-text="getTitle()"></h1>
-    <p class="text-xl mb-5">Get farm-fresh veggies delivered to your doorstep, anytime!</p>
+    <h1 class="text-6xl font-bold mb-5"
+      x-text="currentScreen === 'cart' ? (cartItems.length > 0 ? 'Cart' : 'Cart is empty') : getTitle()"></h1>
+    <p class="text-xl mb-5"
+      x-text="currentScreen === 'cart' ? (cartItems.length > 0 ? 'Checkout all cart items' : 'Browse products and add some items to cart') : 'Get farm-fresh veggies delivered to your doorstep, anytime!'">
+    </p>
 
-    <button class="bg-green-800 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
-      Shop Now
-    </button>
-
+    <template x-if="currentScreen !== 'cart'">
+      <button class="bg-green-800 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4">
+        Shop Now
+      </button>
+    </template>
   </div>
 </div>

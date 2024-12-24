@@ -9,25 +9,12 @@
   <div x-html="(await axios.get('./components/removeFromCartToast.html')).data"></div>
   <!-- remove cart toast close -->
 
-  <!-- hero section with background image and overlay h1-> Some header text , p-> Promotion text , button -->
-  <div
-    class="bg-gray-800 bg-cover bg-center bg-no-repeat rounded-lg shadow-lg p-20 text-white text-center slideUp mt-20 mb-20"
-    x-show="cartItems.length>0">
-    <h1 class="text-6xl mb-5"> <strong>Cart</strong></h1>
-    <p class="text-xl mb-5">Checkout all cart items</p>
-  </div>
+
+  <!-- Hero section with background image and soft overlay -->
+  <div x-html="(await axios.get('./components/heroSection.html')).data"></div>
   <!-- end of hero section -->
 
-
-
-  <!-- empty cart message start -->
-  <div
-    class="bg-gray-800 bg-cover bg-center bg-no-repeat rounded-lg shadow-lg p-20 text-white text-center slideUp mt-20 mb-20"
-    x-show="cartItems.length==0">
-    <h1 class="text-6xl mb-5"> <strong>Cart is empty</strong></h1>
-    <p class="text-xl mb-5">Please add some items to cart</p>
-  </div>
-  <!-- empty cart message end -->
+  
 
   <!-- create a grid start -->
   <div class=" gap-4" x-show="cartItems.length>0">
