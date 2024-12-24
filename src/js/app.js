@@ -1,6 +1,20 @@
 // alpine init within event listener
 addEventListener("alpine:init", () => {
   Alpine.data("app", () => ({
+  
+    // FAQ-specific data and methods start
+    activeFAQ: null, // To track the currently open FAQ
+
+    toggleFAQ(index) {
+      this.activeFAQ = this.activeFAQ === index ? null : index; // Toggle visibility
+    },
+
+    isFAQOpen(index) {
+      return this.activeFAQ === index; // Check if an FAQ is open
+    },
+
+    // FAQ-specific data and methods end
+
     currentScreen: localStorage.getItem("currentScreen") || "home",
     getTitle() {
       const titles = {
@@ -228,7 +242,6 @@ addEventListener("alpine:init", () => {
     currentYear: "",
     scrollToTop: false,
     init() {
-     
       // get the current year
       this.currentYear = new Date().getFullYear();
 
