@@ -1,4 +1,10 @@
-<div id="cartScreen" x-show="currentScreen === 'cart'">
+<div id="cartScreen" x-show="currentScreen === 'cart'"
+
+ x-transition:enter="transition transform ease-out duration-500"
+     x-transition:enter-start="translate-y-10 opacity-0"
+     x-transition:enter-end="translate-y-0 opacity-100">
+
+
   <!-- remove cart toast -->
   <div x-html="(await axios.get('./components/removeFromCartToast.html')).data"></div>
   <!-- remove cart toast close -->

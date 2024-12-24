@@ -1,12 +1,17 @@
 
-<div id="productsScreen" x-show="currentScreen === 'home'">
+<div id="productsScreen" x-show="currentScreen === 'faq'"
+
+ x-transition:enter="transition transform ease-out duration-500"
+     x-transition:enter-start="translate-y-10 opacity-0"
+     x-transition:enter-end="translate-y-0 opacity-100">
+
 
 
   <!-- Hero section with background image and soft overlay -->
   <div class="relative bg-gray-800 rounded-lg shadow-lg text-white text-center mt-20 mb-20 overflow-hidden">
     <!-- Background image -->
     <div class="absolute inset-0 bg-cover bg-center rounded-lg"
-      style="background-image: url('https://images.unsplash.com/photo-1697545806245-9795b6056141?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+      style="background-image: url('https://images.unsplash.com/photo-1605522283494-4901a98d458e?q=80&w=2944&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
     </div>
 
     <!-- Overlay -->
@@ -14,8 +19,9 @@
 
     <!-- Content -->
     <div class="relative z-10 p-20">
-      <h1 class="text-6xl font-bold mb-5">Awesome collection of <strong>Phones</strong></h1>
-      <p class="text-xl mb-5">Shop on your phone for awesome stuff anytime, anywhere!</p>
+      <h1 class="text-6xl font-bold mb-5">Fresh and Organic <strong>Vegetables</strong></h1>
+      <p class="text-xl mb-5">Get farm-fresh veggies delivered to your doorstep, anytime!</p>
+
       <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
         Shop Now
       </button>

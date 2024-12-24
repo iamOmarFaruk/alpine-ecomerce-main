@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- add favicon -->
+    <link rel="icon" href="favicon.png" type="image/x-icon">
     <title>Simple Alpine Ecomerce</title>
+    <meta name="description" content="Simple Alpine Ecomerce | Demo Project for displaying Alpine.js">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
         integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
@@ -13,6 +16,8 @@
     <script src="/cdn.min.js" defer></script>
     <!-- add google font popins -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <style>
         html {
             scroll-behavior: smooth;
@@ -90,20 +95,33 @@
 
 
     <!-- create a container  -->
-    <div class="container mx-auto mt-20 min-h-screen">
+    <div class="container mx-auto mt-20 ">
 
 
 
         <!-- ============ Products Screen Start ============ -->
 
-        <div x-html="(await axios.get('./screens/productsScreen.html')).data"></div>
-        <!-- ============ Products Screen Start ============ -->
+        <div x-html="(await axios.get('./screens/homeScreen.html')).data"></div>
+        
+
+
+        <!-- ============ About Screen Start ============ -->
+        <div x-html="(await axios.get('./screens/aboutScreen.html')).data"></div>
+
+
+        <!-- ============ Shop Screen Start ============ -->
+        <div x-html="(await axios.get('./screens/shopScreen.html')).data"></div>
+       
+
+        <!-- ============ FAQ Screen Start ============ -->
+        <div x-html="(await axios.get('./screens/faqScreen.html')).data"></div>
+
 
 
 
         <!-- ============ Cart Screen Start ============ -->
         <div x-html="(await axios.get('./screens/cartScreen.html')).data"></div>
-        <!-- ============ Cart Screen Start ============ -->
+       
 
 
 
@@ -111,7 +129,10 @@
         <div x-html="(await axios.get('./screens/checkoutScreen.html')).data"></div>
 
 
+        <!-- ============ Contact Screen Start ============ -->
+        <div x-html="(await axios.get('./screens/contactScreen.html')).data"></div>
 
+       
 
 
 
@@ -120,9 +141,45 @@
 
 
     <!-- create a simple footer with copyright reserved -->
-    <footer class="bg-gray-800 text-white p-4 text-center mt-20">
-        &copy; <span x-text="currentYear"></span> All rights reserved
-    </footer>
+<footer class="bg-green-800 text-white py-20">
+    <!-- Top Section -->
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Contact Section -->
+        <div>
+            <h2 class="text-lg font-semibold">Let's keep in touch!</h2>
+            <p class="text-sm mt-2">Find us on any of these platforms, we respond within 1-2 business days.</p>
+            
+        </div>
+
+        <!-- Useful Links -->
+        <div>
+            <h2 class="text-lg font-semibold">Useful Links</h2>
+            <ul class="mt-4 space-y-2 text-sm">
+                <li><a href="#" class="hover:text-gray-300">About Us</a></li>
+                <li><a href="#" class="hover:text-gray-300">Blog</a></li>
+                <li><a href="#" class="hover:text-gray-300">GitHub</a></li>
+                <li><a href="#" class="hover:text-gray-300">Free Products</a></li>
+            </ul>
+        </div>
+
+        <!-- Other Resources -->
+        <div>
+            <h2 class="text-lg font-semibold">Other Resources</h2>
+            <ul class="mt-4 space-y-2 text-sm">
+                <li><a href="#" class="hover:text-gray-300">MIT License</a></li>
+                <li><a href="#" class="hover:text-gray-300">Terms & Conditions</a></li>
+                <li><a href="#" class="hover:text-gray-300">Privacy Policy</a></li>
+                <li><a href="#" class="hover:text-gray-300">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="text-center mt-8 pt-10">
+      <P class="text-sm"> Alpine Shop -  &copy; <span x-text="currentYear"></span> All rights reserved</P> 
+      <small>Design by Omar and Used Alpine and Tailwind</small>    
+    </div>
+</footer>
 
 
 

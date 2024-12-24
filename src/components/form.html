@@ -1,0 +1,66 @@
+<form x-data="{
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    errors: {},
+    validateForm() {
+        this.errors = {};
+
+        // Validate Name
+        if (!this.name.trim()) {
+            this.errors.name = 'Name is required.';
+        }
+
+        // Validate Email
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!this.email.trim()) {
+            this.errors.email = 'Email is required.';
+        } else if (!emailPattern.test(this.email)) {
+            this.errors.email = 'Enter a valid email address.';
+        }
+
+        // Validate Subject
+        if (!this.subject.trim()) {
+            this.errors.subject = 'Subject is required.';
+        }
+
+        // Validate Message
+        if (!this.message.trim()) {
+            this.errors.message = 'Message is required.';
+        }
+
+        return Object.keys(this.errors).length === 0;
+    },
+    sendEmail() {
+        if (this.validateForm()) {
+            const mailtoLink = `mailto:omarbg.bd@gmail.com?subject=${encodeURIComponent(this.subject)}&body=${encodeURIComponent(`Name: ${this.name}\nEmail: ${this.email}\n\nMessage:\n${this.message}`)}`;
+            window.location.href = mailtoLink;
+        }
+    }
+}" class="w-full ml-auto space-y-4">
+  <div>
+    <input type="text" placeholder="Name" x-model="name"
+      class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-green-800 focus:bg-transparent" />
+    <p x-show="errors.name" class="text-red-600 text-sm mt-1" x-text="errors.name"></p>
+  </div>
+  <div>
+    <input type="email" placeholder="Email" x-model="email"
+      class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-green-800 focus:bg-transparent" />
+    <p x-show="errors.email" class="text-red-600 text-sm mt-1" x-text="errors.email"></p>
+  </div>
+  <div>
+    <input type="text" placeholder="Subject" x-model="subject"
+      class="w-full rounded-md py-3 px-4 bg-gray-100 text-gray-800 text-sm outline-green-800 focus:bg-transparent" />
+    <p x-show="errors.subject" class="text-red-600 text-sm mt-1" x-text="errors.subject"></p>
+  </div>
+  <div>
+    <textarea placeholder="Message" rows="6" x-model="message"
+      class="w-full rounded-md px-4 bg-gray-100 text-gray-800 text-sm pt-3 outline-green-800 focus:bg-transparent"></textarea>
+    <p x-show="errors.message" class="text-red-600 text-sm mt-1" x-text="errors.message"></p>
+  </div>
+  <button type="button" @click="sendEmail"
+    class="text-white bg-green-800 hover:bg-green-900 tracking-wide rounded-md text-sm px-4 py-3 w-full !mt-6">
+    Send
+  </button>
+</form>

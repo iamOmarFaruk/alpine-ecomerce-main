@@ -1,5 +1,5 @@
 <!-- create a nav left - text logo and right side  page nav , products and cart, checkout -->
-<nav class="bg-gray-800 text-white p-4 flex justify-between fixed top-0 left-0 right-0 z-50">
+<nav class="bg-green-800 text-white p-4 flex justify-between fixed top-0 left-0 right-0 z-50">
   <div class="w-full max-w-[1270px] mx-auto py-2 flex justify-between">
     <!-- Left side nav -->
     <div class="flex items-center">
@@ -7,12 +7,20 @@
     </div>
 
     <!-- Right side nav -->
-    <div class="flex items-center space-x-4">
-      <a class="cursor-pointer" @click="currentScreen = 'home'">Home</a>
-      <a class="cursor-pointer" @click="currentScreen = 'cart'">Cart <span x-show="cartItems.length > 0"
-          class="text-white">(<span class="item-count" x-text="cartItems.length"></span>)</span></a>
-      <a class="cursor-pointer" @click="currentScreen = 'checkout'">Checkout</a>
-    </div>
+  <div class="flex items-center space-x-4">
+    <a class="cursor-pointer" @click="currentScreen = 'home'">Home</a>
+    <a class="cursor-pointer" @click="currentScreen = 'about'">About</a>
+    <a class="cursor-pointer" @click="currentScreen = 'shop'">Shop</a>
+    <a class="cursor-pointer" @click="currentScreen = 'faq'">FAQ</a>
+    
+    <a class="cursor-pointer" @click="currentScreen = 'cart'">Cart <span x-show="cartItems.length > 0"
+        class="text-white">(<span class="item-count" x-text="cartItems.length"></span>)</span></a>
+    <!-- <a class="cursor-pointer" @click="currentScreen = 'checkout'">Checkout</a> -->
+    <a class="cursor-pointer" @click="currentScreen = 'contact'">Contact</a>
+  </div>
+
+
+
   </div>
 </nav>
 <div class="h-5"></div>
