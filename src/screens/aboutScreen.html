@@ -9,86 +9,11 @@
 
 
   
-  <div class="p-4">
-    <h1 class="text-2xl font-bold">Checkout</h1>
 
-    <!-- Shipping Information Form -->
-    <div class="bg-white rounded-lg p-4 my-4">
-      <h2 class="text-xl font-semibold">Shipping Information</h2>
-      <form>
-        <div class="mb-4">
-          <label for="name" class="block text-gray-600">Name</label>
-          <input type="text" id="name" name="name" class="w-full px-3 py-2 border rounded-lg" placeholder="John Doe">
-        </div>
-        <div class="mb-4">
-          <label for="address" class="block text-gray-600">Address</label>
-          <input type="text" id="address" name="address" class="w-full px-3 py-2 border rounded-lg"
-            placeholder="123 Main St">
-        </div>
-        <!-- Add more input fields for city, state, ZIP, etc. -->
-      </form>
-    </div>
-
-    <!-- Order Summary -->
-    <div class="bg-white rounded-lg p-4 my-4">
-      <h2 class="text-xl font-semibold">Order Summary</h2>
+<div class="py-20">
+<div x-html="(await axios.get('./components/aboutSection.html')).data"></div>
+</div>>
 
 
-      <div x-show="cartItems.length==0">
-        <p>You don't have any products on cart </p>
-        <p>Please add some <span class="cursor-pointer font-bold underline"
-            @click="currentScreen='home'">products</span> first!</p>
-      </div>
 
-
-      <div x-show="cartItems.length>0">
-        <h4 class="my-4">You Added <strong><span x-text="calculateTotalItemsFromCart()"></span></strong>
-          products </h4>
-        <table class="table-auto my-4">
-          <thead>
-            <tr class="border">
-
-              <th class="px-4 py-2">#</th>
-              <th class="px-4 py-2">Product Name</th>
-              <th class="px-4 py-2">Quantity</th>
-              <th class="px-4 py-2">Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            <template x-for="(product, index) in cartItems" :key="product.id">
-              <tr>
-                <td class="border px-4 py-2" x-text=" index + 1 "></td>
-                <td class="border px-4 py-2" x-text="product.name"></td>
-                <td class="border px-4 py-2" x-text="product.quantity"></td>
-                <td class="border px-4 py-2" x-text="'$' + calculatePrice(product.price, product.quantity)"></td>
-              </tr>
-            </template>
-          </tbody>
-        </table>
-        <p>Total Price: <strong><span x-text="'$'+ calculateTotalPriceFromCart ()"></span></strong></p>
-      </div>
-    </div>
-
-    <!-- Payment Information Form -->
-    <div class="bg-white rounded-lg p-4 my-4">
-      <h2 class="text-xl font-semibold">Payment Information</h2>
-      <form>
-        <div class="mb-4">
-          <label for="cardNumber" class="block text-gray-600">Credit Card Number</label>
-          <input type="text" id="cardNumber" name="cardNumber" class="w-full px-3 py-2 border rounded-lg"
-            placeholder="**** **** **** ****">
-        </div>
-        <div class="mb-4">
-          <label for="expiryDate" class="block text-gray-600">Expiry Date</label>
-          <input type="text" id="expiryDate" name="expiryDate" class="w-full px-3 py-2 border rounded-lg"
-            placeholder="MM/YY">
-        </div>
-        <!-- Add more input fields for CVV, cardholder name, etc. -->
-      </form>
-    </div>
-
-    <!-- Place Order Button -->
-    <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-full hover:bg-blue-600">Place
-      Order</button>
-  </div>
 </div>
