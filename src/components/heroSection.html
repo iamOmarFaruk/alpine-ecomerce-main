@@ -8,18 +8,19 @@
   <div class="absolute inset-0 bg-black bg-opacity-30 rounded-lg"></div>
 
   <!-- Content -->
-  <div class="relative z-10 p-20">
-    <h1 class="text-6xl font-bold mb-5"
+  <div class="relative z-10 px-6 py-16 md:px-12 lg:px-20 lg:py-24">
+    <h1 class="text-2xl md:text-4xl lg:text-6xl font-bold mb-4"
       x-text="currentScreen === 'cart' ? (cartItems.length > 0 ? 'Cart' : 'Cart is empty') : getTitle()"></h1>
-    <p class="text-xl mb-5"
+    <p class="text-sm md:text-lg lg:text-2xl mb-5"
       x-text="currentScreen === 'cart' ? (cartItems.length > 0 ? 'Checkout all cart items' : 'Browse products and add some items to cart') : 'Get farm-fresh veggies delivered to your doorstep, anytime!'">
     </p>
 
     <template x-if="currentScreen !== 'cart'">
-      <button class="bg-green-800 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4" @click="navigate('shop')">
+      <button
+        class="bg-green-800 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4 md:mt-6 md:py-3 md:px-6"
+        @click="navigate('shop')">
         Shop Now
       </button>
-
     </template>
   </div>
 </div>
