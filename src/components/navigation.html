@@ -9,6 +9,11 @@
     <div class="flex items-center space-x-4">
       <a class="cursor-pointer hover:text-gray-300 transition-colors"
         :class="{'underline font-bold': currentScreen === 'home'}" @click="navigate('home')">Home</a>
+
+      <!-- checkout -->
+      <a class="cursor-pointer hover:text-gray-300 transition-colors"
+        :class="{'underline font-bold': currentScreen === 'checkout'}" @click="navigate('checkout')">Checkout</a>
+
       <a class="cursor-pointer hover:text-gray-300 transition-colors"
         :class="{'underline font-bold': currentScreen === 'about'}" @click="navigate('about')">About</a>
       <a class="cursor-pointer hover:text-gray-300 transition-colors"

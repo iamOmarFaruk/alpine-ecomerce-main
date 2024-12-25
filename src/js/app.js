@@ -39,6 +39,7 @@ addEventListener("alpine:init", () => {
         faq: "Frequently Asked Questions",
         cart: "Your Shopping Cart",
         contact: "Contact Us",
+        checkout: "Secure Checkout",
       };
       return titles[this.currentScreen] || "Default Title";
     },
@@ -51,6 +52,7 @@ addEventListener("alpine:init", () => {
         faq: "Frequently Asked Questions",
         cart: "Your Shopping Cart",
         contact: "Contact Us",
+        checkout: "Checkout",
       };
       document.title =`${
         titles[this.currentScreen] || "Default Title"
