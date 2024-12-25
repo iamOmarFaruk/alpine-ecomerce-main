@@ -47,17 +47,32 @@ Thanks to the Alpine.js and Tailwind CSS teams for creating tools that make buil
 If you like this project, please give it a ⭐ on GitHub and consider following me for more exciting projects! 🚀
 
 
+
 ## 🛠️ How to Run Locally
-```bash
-# Clone the repository
-git clone https://github.com/iamOmarFaruk/alpine-ecomerce-main.git
 
-# Navigate to the project directory
-cd alpine-ecomerce-main
+1. **Clone the Repository**  
+   Clone the project repository to your local machine using the following command:
+   ```bash
+   git clone https://github.com/iamOmarFaruk/alpine-ecomerce-main.git
+   ```
 
-# Install dependencies
-# No dependencies! Just open the index.html file in your browser.
+2. **Navigate to the Project Directory**  
+   Change your current directory to the project folder:
+   ```bash
+   cd alpine-ecomerce-main
+   ```
 
+3. **Install Tailwind CSS**  
+   No installation is required if you are using `npx`. Simply proceed to the next step.
+
+4. **Run Tailwind CSS Build Process**  
+   Use the following command to watch and compile your Tailwind CSS files:
+   ```bash
+   npx tailwindcss -i ./src/style.css -o ./dist/output.css --watch
+   ```
+
+5. **Open the Project in Your Browser**  
+   After the CSS is compiled, open the `index.html` file in your browser to view the project.
 
 
 
