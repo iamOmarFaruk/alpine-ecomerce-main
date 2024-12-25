@@ -3,6 +3,8 @@
 
 Welcome to my fun project! This single-page e-commerce site is built with **Alpine.js**, **Tailwind CSS**, and **Axios**, showcasing how far creativity can take you with simple tools. 🚀
 
+Live Link - https://alpine-ecomerce.vercel.app/
+
 ![Alpine E-commerce Screenshot](https://github.com/iamOmarFaruk/alpine-ecomerce-main/blob/main/screenshoot.png?raw=true)
 
 ## ✨ Why This Project?
@@ -62,17 +64,25 @@ If you like this project, please give it a ⭐ on GitHub and consider following 
    cd alpine-ecomerce-main
    ```
 
-3. **Install Tailwind CSS**  
-   No installation is required if you are using `npx`. Simply proceed to the next step.
-
-4. **Run Tailwind CSS Build Process**  
-   Use the following command to watch and compile your Tailwind CSS files:
-   ```bash
-   npx tailwindcss -i ./src/style.css -o ./dist/output.css --watch
+3. **Install Dependencies**  
+   Install all the required dependencies using the following command:
+    ```bash
+   npm install
    ```
 
-5. **Open the Project in Your Browser**  
-   After the CSS is compiled, open the `index.html` file in your browser to view the project.
+5. **Run the Development Server**  
+  Start the development server with live reload by running:
+   ```bash
+   npm run dev
+   ```
+   This will serve the project from the dist folder at http://localhost:3000.
+
+6. **Build for Production**  
+   To create a production-ready build, run:
+    ```bash
+   npm run build
+   ```
+   This will generate a minified and optimized version of your project in the dist folder.
 
 
 
