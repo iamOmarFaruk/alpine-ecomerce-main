@@ -38,7 +38,9 @@ addEventListener("alpine:init", () => {
         cart: "Your Shopping Cart",
         contact: "Contact Us",
       };
+     
       return titles[this.currentScreen] || "Default Title";
+       
     },
     navigate(screen) {
       this.currentScreen = screen; // Update current screen

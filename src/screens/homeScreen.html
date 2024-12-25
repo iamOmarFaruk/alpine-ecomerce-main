@@ -16,8 +16,12 @@
 
 <div class="py-20 min-h-full">
 
+  <div x-html="(await axios.get('./components/featuresection.html')).data"></div>
+
+
+
   <!-- create a grid start -->
-  <div x-html="(await axios.get('./components/products.html')).data"></div>
+  <div x-html="(await axios.get('./components/featureProducts.html')).data"></div>
   <!-- create a grid end -->
 </div>
 
