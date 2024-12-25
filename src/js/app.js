@@ -29,6 +29,8 @@ addEventListener("alpine:init", () => {
     // FAQ-specific data and methods end
 
     currentScreen: localStorage.getItem("currentScreen") || "home",
+
+    // SECTION: Dynamic Title Update
     getTitle() {
       const titles = {
         home: "Welcome to Our Shop",
@@ -38,24 +40,35 @@ addEventListener("alpine:init", () => {
         cart: "Your Shopping Cart",
         contact: "Contact Us",
       };
-     
       return titles[this.currentScreen] || "Default Title";
-       
     },
+
+    updateTitle() {
+      const titles = {
+        home: "Welcome to Our Shop",
+        about: "About Us",
+        shop: "Explore Our Products",
+        faq: "Frequently Asked Questions",
+        cart: "Your Shopping Cart",
+        contact: "Contact Us",
+      };
+      document.title =`${
+        titles[this.currentScreen] || "Default Title"
+      }`;
+    },
+
     navigate(screen) {
       this.currentScreen = screen; // Update current screen
       localStorage.setItem("currentScreen", screen); // Save to localStorage
+      this.updateTitle(); // Dynamically update the title
     },
 
     apptitle: "Alpine Shop",
     AddToCartToast: false,
     RemoveFromCartToast: false,
     cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
-   
 
-    // methods
-
-    // toast
+    // SECTION: Toast Methods
     showToast() {
       this.AddToCartToast = true;
       setTimeout(() => {
@@ -63,7 +76,6 @@ addEventListener("alpine:init", () => {
       }, 900);
     },
 
-    // toast remove from cart
     showToastRemoveFromCart() {
       this.RemoveFromCartToast = true;
       setTimeout(() => {
@@ -78,22 +90,18 @@ addEventListener("alpine:init", () => {
       return parseInt(price) * parseInt(quantity);
     },
 
+    // SECTION: Cart Methods
     addToCart(productId, quantity) {
-      // grab the product from products array
       const product = this.products.find((product) => product.id === productId);
 
-      // check if the product is already in cartItems array
       const productInCart = this.cartItems.find(
         (product) => product.id === productId
       );
 
-      // if product is already in cartItems array then update the quantity
       if (productInCart) {
-        // update the quantity
         productInCart.quantity =
           parseInt(productInCart.quantity) + parseInt(quantity);
       } else {
-        // else add the product to cartItems array
         this.cartItems.push({
           quantity: quantity,
           id: product.id,
@@ -105,45 +113,32 @@ addEventListener("alpine:init", () => {
       }
 
       this.showToast();
-
-      // save the cartItems array to localStorage
       localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
     },
-    // end of addToCart method
 
-    // remove product from cartItems array
     removeFromCart(productId) {
-      // filter out the product from cartItems array
       this.cartItems = this.cartItems.filter(
         (product) => product.id !== productId
       );
 
-      // save the cartItems array to localStorage
       localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
-
       this.showToastRemoveFromCart();
-    }, // end of removeFromCart method
+    },
 
     updateQuantityInCart(productId, quantity) {
-      // if quantity is o the remove the product from cartItems array
       if (quantity < 1) {
-        // filter out the product from cartItems array
         this.removeFromCart(productId);
       } else {
-        // grab the product from cartItems array and update the quantity
         const product = this.cartItems.find(
           (product) => product.id === productId
         );
 
-        // update the quantity
         product.quantity = quantity;
 
-        // save the cartItems array to localStorage
         localStorage.setItem("cartItems", JSON.stringify(this.cartItems));
       }
     },
 
-    // totalItemsInCartCalculator
     calculateTotalItemsFromCart() {
       let totalItems = 0;
       this.cartItems.forEach((product) => {
@@ -153,7 +148,6 @@ addEventListener("alpine:init", () => {
       return totalItems;
     },
 
-    // totalPriceinCartCalculator
     calculateTotalPriceFromCart() {
       let totalPrice = 0;
       this.cartItems.forEach((product) => {
@@ -165,15 +159,15 @@ addEventListener("alpine:init", () => {
 
     currentYear: "",
     scrollToTop: false,
-    init () {
-      // fetch products
+
+    // SECTION: Init Method
+    init() {
       this.fetchProducts();
 
+      this.updateTitle(); // Set the initial title on load
 
-      // get the current year
       this.currentYear = new Date().getFullYear();
 
-      // scroll to top, if user scrolls down 70% or more then scrollToTop make true
       window.addEventListener("scroll", () => {
         if (window.scrollY > window.innerHeight * 0.7) {
           this.scrollToTop = true;
