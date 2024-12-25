@@ -38,7 +38,7 @@
           { q: 'What are your working hours?', a: 'Our support team is available 9 AM to 6 PM, Monday to Friday.' },
           { q: 'Can I export a list of all collaborators?', a: 'Yes, you can export a list of collaborators from your account settings.' }
         ]" :key="index">
-          <div class="bg-gray-100 rounded-lg p-4 shadow-md">
+          <div class="bg-gray-100 rounded-lg p-4 shadow-md mb-5">
             <button @click="toggleFAQ(index)"
               class="flex justify-between items-center w-full text-left text-lg font-semibold text-gray-800">
               <span x-text="question.q"></span>
@@ -71,7 +71,7 @@
           { q: 'What payment methods do you accept?', a: 'We accept major credit cards, PayPal, and bank transfers.' },
           { q: 'Is there a trial period available?', a: 'Yes, we offer a 14-day trial period for new users.' }
         ]" :key="index">
-          <div class="bg-gray-100 rounded-lg p-4 shadow-md">
+          <div class="bg-gray-100 rounded-lg p-4 shadow-md mb-5">
             <button @click="toggleFAQ(index + 10)"
               class="flex justify-between items-center w-full text-left text-lg font-semibold text-gray-800">
               <span x-text="question.q"></span>
