@@ -4,20 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- add favicon -->
-    <link rel="icon" href="favicon.png" type="image/x-icon">
-    <title>Simple Alpine Ecomerce</title>
-    <meta name="description" content="Simple Alpine Ecomerce | Demo Project for displaying Alpine.js">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+    <title>Simple Alpine E-commerce</title>
+    <meta name="description" content="Simple Alpine E-commerce | Demo Project for displaying Alpine.js">
 
+    <!-- External Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
         integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- add tailwind cdn for dev -->
-    <script src="/cdn.min.js" defer></script>
-    <!-- add google font popins -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <!-- Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/output.css">
+
+    <!-- Custom Styles -->
     <style>
         html {
             scroll-behavior: smooth;
@@ -30,126 +34,48 @@
         [x-cloak] {
             display: none !important;
         }
-
-        #_custom_toast {
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            position: fixed;
-            top: 27px;
-            right: 45%;
-            z-index: 9999;
-        }
-
-        .slideDownNotification {
-            animation: slideDown 1s ease-in-out forwards;
-        }
-
-        .slideUpNotification {
-            animation: slideUp 1s ease-in-out forwards;
-        }
-
-        @keyframes slideDown {
-            0% {
-                transform: translateY(-100%);
-            }
-
-            100% {
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes slideUp {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-100%);
-            }
-        }
     </style>
-    <link rel="stylesheet" href="../dist/output.css">
 </head>
 
 <body x-data="app" x-cloak class="relative">
+    <!-- Navigation -->
+    <div x-html="(await axios.get('/components/navigation.html')).data"></div>
 
+    <!-- Notification -->
+    <div x-html="(await axios.get('/components/addToCartNotification.html')).data"></div>
 
+    <!-- Main Container -->
+    <div class="container mx-auto mt-20">
+        <!-- Home Screen -->
+        <div x-html="(await axios.get('/screens/homeScreen.html')).data"></div>
 
+        <!-- About Screen -->
+        <div x-html="(await axios.get('/screens/aboutScreen.html')).data"></div>
 
+        <!-- Shop Screen -->
+        <div x-html="(await axios.get('/screens/shopScreen.html')).data"></div>
 
-    <!-- create a nav left - text logo and right side  page nav , products and cart, checkout -->
-    <div x-html="(await axios.get('./components/navigation.html')).data"></div>
+        <!-- FAQ Screen -->
+        <div x-html="(await axios.get('/screens/faqScreen.html')).data"></div>
 
+        <!-- Cart Screen -->
+        <div x-html="(await axios.get('/screens/cartScreen.html')).data"></div>
 
+        <!-- Checkout Screen -->
+        <div x-html="(await axios.get('/screens/checkoutScreen.html')).data"></div>
 
-
-    <!-- notification start -->
-    <div x-html="(await axios.get('./components/addToCartNotification.html')).data"></div>
-
-    <!-- notification close -->
-
-
-
-
-
-
-    <!-- create a container  -->
-    <div class="container mx-auto mt-20 ">
-
-
-
-        <!-- ============ Products Screen Start ============ -->
-
-        <div x-html="(await axios.get('./screens/homeScreen.html')).data"></div>
-        
-
-
-        <!-- ============ About Screen Start ============ -->
-        <div x-html="(await axios.get('./screens/aboutScreen.html')).data"></div>
-
-
-        <!-- ============ Shop Screen Start ============ -->
-        <div x-html="(await axios.get('./screens/shopScreen.html')).data"></div>
-       
-
-        <!-- ============ FAQ Screen Start ============ -->
-        <div x-html="(await axios.get('./screens/faqScreen.html')).data"></div>
-
-
-
-
-        <!-- ============ Cart Screen Start ============ -->
-        <div x-html="(await axios.get('./screens/cartScreen.html')).data"></div>
-       
-
-
-
-        <!-- ============ Checkout Screen Start ============ -->
-        <div x-html="(await axios.get('./screens/checkoutScreen.html')).data"></div>
-
-
-        <!-- ============ Contact Screen Start ============ -->
-        <div x-html="(await axios.get('./screens/contactScreen.html')).data"></div>
-
-       
-
-
-
-        <!-- end of container -->
+        <!-- Contact Screen -->
+        <div x-html="(await axios.get('/screens/contactScreen.html')).data"></div>
     </div>
 
+    <!-- Footer -->
+    <div x-html="(await axios.get('/components/footer.html')).data"></div>
 
-    <!-- create a simple footer with copyright reserved -->
-    <div x-html="(await axios.get('./components/footer.html')).data"></div>
+    <!-- Scroll to Top -->
+    <div x-html="(await axios.get('/components/scrollToTop.html')).data"></div>
 
-    <!-- scroll top  add this from components scrollToTop.html -->
-    <div x-html="(await axios.get('./components/scrollToTop.html')).data"></div>
-
-
-
-    <!-- include app.js -->
-    <script src="js/app.js"></script>
+    <!-- App JS -->
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
