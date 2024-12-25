@@ -141,49 +141,7 @@
 
 
     <!-- create a simple footer with copyright reserved -->
-<footer class="bg-green-800 text-white py-20">
-    <!-- Top Section -->
-    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
-        <!-- Contact Section -->
-        <div>
-            <h2 class="text-lg font-semibold">Let’s Collaborate!</h2>
-            <p class="text-sm mt-2">Expert in modern web and mobile solutions, delivering tailored applications for businesses of all sizes. From React to
-            Flutter, Python Django to .NET, I specialize in transforming innovative ideas into impactful realities. Contact me
-            today, and let’s create a custom solution that perfectly matches your vision and goals</p>
-        </div>
-
-
-        <!-- Useful Links -->
-        <div>
-            <h2 class="text-lg font-semibold">Useful Links</h2>
-            <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="#" class="hover:text-gray-300">About Us</a></li>
-                <li><a href="#" class="hover:text-gray-300">Blog</a></li>
-                <li><a href="#" class="hover:text-gray-300">GitHub</a></li>
-                <li><a href="#" class="hover:text-gray-300">Free Products</a></li>
-            </ul>
-        </div>
-
-        <!-- Other Resources -->
-        <div>
-            <h2 class="text-lg font-semibold">Other Resources</h2>
-            <ul class="mt-4 space-y-2 text-sm">
-                <li><a href="#" class="hover:text-gray-300">MIT License</a></li>
-                <li><a href="#" class="hover:text-gray-300">Terms & Conditions</a></li>
-                <li><a href="#" class="hover:text-gray-300">Privacy Policy</a></li>
-                <li><a href="#" class="hover:text-gray-300">Contact Us</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <!-- Bottom Section -->
-    <div class="text-center mt-8 pt-10">
-      <P class="text-sm"> Alpine Shop -  &copy; <span x-text="currentYear"></span> All rights reserved</P> 
-      <small>Design by Omar and Used Alpine and Tailwind</small>    
-    </div>
-</footer>
-
-
+    <div x-html="(await axios.get('./components/footer.html')).data"></div>
 
     <!-- scroll top  add this from components scrollToTop.html -->
     <div x-html="(await axios.get('./components/scrollToTop.html')).data"></div>

@@ -1,7 +1,20 @@
 // alpine init within event listener
 addEventListener("alpine:init", () => {
   Alpine.data("app", () => ({
-  
+    // products
+
+    products: [],
+
+    async fetchProducts() {
+      try {
+        // Fetch the data.json file using Axios
+        const response = await axios.get("./data.json");
+        this.products = response.data;
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    },
+
     // FAQ-specific data and methods start
     activeFAQ: null, // To track the currently open FAQ
 
@@ -36,98 +49,7 @@ addEventListener("alpine:init", () => {
     AddToCartToast: false,
     RemoveFromCartToast: false,
     cartItems: JSON.parse(localStorage.getItem("cartItems")) || [],
-    products: [
-      // I need 10 products
-      {
-        quantity: 1,
-        id: 1,
-        name: "iPhone 14 Pro",
-        image: "img/product-1.jpeg",
-        price: 999,
-        description:
-          "The latest and greatest from Apple, with a powerful new A16 Bionic chip, a stunning ProMotion display, and a new 48MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 2,
-        name: "Samsung Galaxy S22 Ultra",
-        image: "img/product-2.jpeg",
-        price: 899,
-        description:
-          "The latest and greatest from Samsung, with a powerful new Exynos 2200 chip, a stunning 120Hz display, and a new 108MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 3,
-        name: "Google Pixel 6 Pro",
-        image: "img/product-3.jpeg",
-        price: 799,
-        description:
-          "The latest and greatest from Google, with a powerful new Tensor chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 4,
-        name: "OnePlus 10 Pro",
-        image: "img/product-4.jpeg",
-        price: 699,
-        description:
-          "The latest and greatest from OnePlus, with a powerful new Snapdragon 898 chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 5,
-        name: "Xiaomi 12 Pro",
-        image: "img/product-5.jpeg",
-        price: 599,
-        description:
-          "The latest and greatest from Xiaomi, with a powerful new Snapdragon 898 chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 6,
-        name: "Huawei Mate 50 Pro",
-        image: "img/product-6.jpeg",
-        price: 499,
-        description:
-          "The latest and greatest from Huawei, with a powerful new Kirin 9000 chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 7,
-        name: "Sony Xperia 1 III",
-        image: "img/product-7.jpeg",
-        price: 399,
-        description:
-          "The latest and greatest from Sony, with a powerful new Snapdragon 898 chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 8,
-        name: "Motorola Edge 30 Pro",
-        image: "img/product-8.jpeg",
-        price: 299,
-        description:
-          "The latest and greatest from Motorola, with a powerful new Snapdragon 898 chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-
-      {
-        quantity: 1,
-        id: 9,
-        name: "Nokia 10 Pro",
-        image: "img/product-9.jpeg",
-        price: 199,
-        description:
-          " The latest and greatest from Nokia, with a powerful new Snapdragon 898 chip, a stunning 120Hz display, and a new 50MP camera system.",
-      },
-    ],
+   
 
     // methods
 
@@ -241,7 +163,11 @@ addEventListener("alpine:init", () => {
 
     currentYear: "",
     scrollToTop: false,
-    init() {
+    init () {
+      // fetch products
+      this.fetchProducts();
+
+
       // get the current year
       this.currentYear = new Date().getFullYear();
 
