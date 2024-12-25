@@ -4,7 +4,8 @@
   "description": "",
   "main": "cdn.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./src/style.css -o ./dist/output.css"
   },
   "author": "Omar Faruk",
   "license": "ISC",
