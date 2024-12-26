@@ -13,84 +13,85 @@
 
 
   <!-- create a grid start -->
-  <div class="py-20 min-h-full">
+  <div class="py-10 md:py-20">
 
-  <!-- FAQ Section -->
-  <div x-show="currentScreen === 'faq'" class="max-w-5xl mx-auto p-6">
-    <!-- FAQ Title -->
-    
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+<!-- FAQ Section -->
+<div x-show="currentScreen === 'faq'" class="max-w-5xl mx-auto p-4 md:p-6">
+  <!-- FAQ Title -->
+  <h2 class="text-xl md:text-3xl font-bold text-center mb-6 md:mb-8">Frequently Asked Questions</h2>
 
-  
-    <!-- FAQ List -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Left Column -->
-      <div>
-        <template x-for="(question, index) in [
-          { q: 'How do I upgrade/downgrade my workplace plan?', a: 'You can upgrade or downgrade from your account settings at any time.' },
-          { q: 'How does billing work?', a: 'Billing is processed monthly, and you will receive invoices via email.' },
-          { q: 'Can I add other information to an invoice?', a: 'Yes, additional information can be added to invoices through your billing settings.' },
-          { q: 'Can I share an individual app?', a: 'Yes, you can share individual apps by adjusting the permissions in the settings.' },
-          { q: 'When should I use a new table vs. a view?', a: 'Use a new table for independent data, and views for filtered or computed data.' },
-          { q: 'How do I transfer data from one base to another?', a: 'You can transfer data by exporting it as a CSV file and importing it into another base.' },
-          { q: 'What is your refund policy?', a: 'Refunds are processed within 5-7 business days under eligible conditions.' },
-          { q: 'Do you offer support for custom projects?', a: 'Yes, we provide support for custom projects based on your requirements.' },
-          { q: 'What are your working hours?', a: 'Our support team is available 9 AM to 6 PM, Monday to Friday.' },
-          { q: 'Can I export a list of all collaborators?', a: 'Yes, you can export a list of collaborators from your account settings.' }
-        ]" :key="index">
-          <div class="bg-gray-100 rounded-lg p-4 shadow-md mb-5">
-            <button @click="toggleFAQ(index)"
-              class="flex justify-between items-center w-full text-left text-lg font-semibold text-gray-800">
-              <span x-text="question.q"></span>
-              <i :class="isFAQOpen(index) ? 'fas fa-minus text-gray-600' : 'fas fa-plus text-gray-600'"></i>
-            </button>
-            <div x-show="isFAQOpen(index)" class="mt-4 text-gray-600 overflow-hidden"
-              x-transition:enter="transition ease-out duration-300"
-              x-transition:enter-start="opacity-0 transform scale-y-75"
-              x-transition:enter-end="opacity-100 transform scale-y-100"
-              x-transition:leave="transition ease-in duration-200"
-              x-transition:leave-start="opacity-100 transform scale-y-100"
-              x-transition:leave-end="opacity-0 transform scale-y-75">
-              <p x-text="question.a"></p>
-            </div>
+  <!-- FAQ List -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+    <!-- Left Column -->
+    <div>
+      <template x-for="(question, index) in [
+        { q: 'How do I upgrade/downgrade my workplace plan?', a: 'You can upgrade or downgrade from your account settings at any time.' },
+        { q: 'How does billing work?', a: 'Billing is processed monthly, and you will receive invoices via email.' },
+        { q: 'Can I add other information to an invoice?', a: 'Yes, additional information can be added to invoices through your billing settings.' },
+        { q: 'Can I share an individual app?', a: 'Yes, you can share individual apps by adjusting the permissions in the settings.' },
+        { q: 'When should I use a new table vs. a view?', a: 'Use a new table for independent data, and views for filtered or computed data.' },
+        { q: 'How do I transfer data from one base to another?', a: 'You can transfer data by exporting it as a CSV file and importing it into another base.' },
+        { q: 'What is your refund policy?', a: 'Refunds are processed within 5-7 business days under eligible conditions.' },
+        { q: 'Do you offer support for custom projects?', a: 'Yes, we provide support for custom projects based on your requirements.' },
+        { q: 'What are your working hours?', a: 'Our support team is available 9 AM to 6 PM, Monday to Friday.' },
+        { q: 'Can I export a list of all collaborators?', a: 'Yes, you can export a list of collaborators from your account settings.' }
+      ]" :key="index">
+        <div class="bg-gray-100 rounded-lg p-3 md:p-4 shadow-md mb-4 md:mb-5">
+          <button @click="toggleFAQ(index)"
+            class="flex justify-between items-center w-full text-left text-base md:text-lg font-semibold text-gray-800">
+            <span x-text="question.q"></span>
+            <i :class="isFAQOpen(index) ? 'fas fa-minus text-gray-600' : 'fas fa-plus text-gray-600'"></i>
+          </button>
+          <div x-show="isFAQOpen(index)" class="mt-3 md:mt-4 text-sm md:text-base text-gray-600 overflow-hidden"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-y-75"
+            x-transition:enter-end="opacity-100 transform scale-y-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 transform scale-y-100"
+            x-transition:leave-end="opacity-0 transform scale-y-75">
+            <p x-text="question.a"></p>
           </div>
-        </template>
-      </div>
-  
-      <!-- Right Column -->
-      <div>
-        <template x-for="(question, index) in [
-          { q: 'Can invoices be sent to other collaborators?', a: 'Yes, invoices can be shared with collaborators based on permissions.' },
-          { q: 'How do I contact support?', a: 'You can reach us via email, live chat, or our contact form.' },
-          { q: 'How do I change my account email address?', a: 'You can update your email address from the profile settings page.' },
-          { q: 'What technologies do you support?', a: 'We support React, Laravel, WordPress, Flutter, and many more.' },
-          { q: 'How secure is my data?', a: 'We use industry-standard encryption to ensure your data is safe and secure.' },
-          { q: 'Do you offer discounts for bulk purchases?', a: 'Yes, discounts are available for bulk orders. Contact us for details.' },
-          { q: 'Can I integrate third-party APIs?', a: 'Yes, we support integration with various third-party APIs.' },
-          { q: 'Do you provide training for using your services?', a: 'Yes, we offer detailed documentation and training sessions.' },
-          { q: 'What payment methods do you accept?', a: 'We accept major credit cards, PayPal, and bank transfers.' },
-          { q: 'Is there a trial period available?', a: 'Yes, we offer a 14-day trial period for new users.' }
-        ]" :key="index">
-          <div class="bg-gray-100 rounded-lg p-4 shadow-md mb-5">
-            <button @click="toggleFAQ(index + 10)"
-              class="flex justify-between items-center w-full text-left text-lg font-semibold text-gray-800">
-              <span x-text="question.q"></span>
-              <i :class="isFAQOpen(index + 10) ? 'fas fa-minus text-gray-600' : 'fas fa-plus text-gray-600'"></i>
-            </button>
-            <div x-show="isFAQOpen(index + 10)" class="mt-4 text-gray-600 overflow-hidden"
-              x-transition:enter="transition ease-out duration-300"
-              x-transition:enter-start="opacity-0 transform scale-y-75"
-              x-transition:enter-end="opacity-100 transform scale-y-100"
-              x-transition:leave="transition ease-in duration-200"
-              x-transition:leave-start="opacity-100 transform scale-y-100"
-              x-transition:leave-end="opacity-0 transform scale-y-75">
-              <p x-text="question.a"></p>
-            </div>
+        </div>
+      </template>
+    </div>
+
+    <!-- Right Column -->
+    <div>
+      <template x-for="(question, index) in [
+        { q: 'Can invoices be sent to other collaborators?', a: 'Yes, invoices can be shared with collaborators based on permissions.' },
+        { q: 'How do I contact support?', a: 'You can reach us via email, live chat, or our contact form.' },
+        { q: 'How do I change my account email address?', a: 'You can update your email address from the profile settings page.' },
+        { q: 'What technologies do you support?', a: 'We support React, Laravel, WordPress, Flutter, and many more.' },
+        { q: 'How secure is my data?', a: 'We use industry-standard encryption to ensure your data is safe and secure.' },
+        { q: 'Do you offer discounts for bulk purchases?', a: 'Yes, discounts are available for bulk orders. Contact us for details.' },
+        { q: 'Can I integrate third-party APIs?', a: 'Yes, we support integration with various third-party APIs.' },
+        { q: 'Do you provide training for using your services?', a: 'Yes, we offer detailed documentation and training sessions.' },
+        { q: 'What payment methods do you accept?', a: 'We accept major credit cards, PayPal, and bank transfers.' },
+        { q: 'Is there a trial period available?', a: 'Yes, we offer a 14-day trial period for new users.' }
+      ]" :key="index">
+        <div class="bg-gray-100 rounded-lg p-3 md:p-4 shadow-md mb-4 md:mb-5">
+          <button @click="toggleFAQ(index + 10)"
+            class="flex justify-between items-center w-full text-left text-base md:text-lg font-semibold text-gray-800">
+            <span x-text="question.q"></span>
+            <i :class="isFAQOpen(index + 10) ? 'fas fa-minus text-gray-600' : 'fas fa-plus text-gray-600'"></i>
+          </button>
+          <div x-show="isFAQOpen(index + 10)" class="mt-3 md:mt-4 text-sm md:text-base text-gray-600 overflow-hidden"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-y-75"
+            x-transition:enter-end="opacity-100 transform scale-y-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 transform scale-y-100"
+            x-transition:leave-end="opacity-0 transform scale-y-75">
+            <p x-text="question.a"></p>
           </div>
-        </template>
-      </div>
+        </div>
+      </template>
     </div>
   </div>
+</div>
+
+
+
 
 
     
