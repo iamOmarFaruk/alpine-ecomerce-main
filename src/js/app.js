@@ -1,15 +1,15 @@
-// alpine init within event listener
 addEventListener("alpine:init", () => {
   Alpine.data("app", () => ({
-    // products
-
+    // Products array initialized as empty
     products: [],
 
+    // Fetch products from data.json
     async fetchProducts() {
       try {
         // Fetch the data.json file using Axios
         const response = await axios.get("./data.json");
         this.products = response.data;
+        console.log("Products loaded:", this.products);
       } catch (error) {
         console.error("Error fetching products:", error);
       }
@@ -54,9 +54,7 @@ addEventListener("alpine:init", () => {
         contact: "Contact Us",
         checkout: "Checkout",
       };
-      document.title =`${
-        titles[this.currentScreen] || "Default Title"
-      }`;
+      document.title = `${titles[this.currentScreen] || "Default Title"}`;
     },
 
     navigate(screen) {
@@ -93,7 +91,7 @@ addEventListener("alpine:init", () => {
     },
 
     // SECTION: Cart Methods
-    addToCart(productId, quantity) {
+    addToCart(productId, quantity = 1) {
       const product = this.products.find((product) => product.id === productId);
 
       const productInCart = this.cartItems.find(
@@ -144,7 +142,7 @@ addEventListener("alpine:init", () => {
     calculateTotalItemsFromCart() {
       let totalItems = 0;
       this.cartItems.forEach((product) => {
-        totalItems += 1;
+        totalItems += product.quantity;
       });
 
       return totalItems;
@@ -164,10 +162,8 @@ addEventListener("alpine:init", () => {
 
     // SECTION: Init Method
     init() {
-      this.fetchProducts();
-
+      this.fetchProducts(); // Fetch products on initialization
       this.updateTitle(); // Set the initial title on load
-
       this.currentYear = new Date().getFullYear();
 
       window.addEventListener("scroll", () => {

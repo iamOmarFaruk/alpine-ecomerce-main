@@ -21,9 +21,20 @@
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="/output.css">
 
+    <!-- Include jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+   
+
+
+
+
+
+
+
+
     <!-- Custom Styles -->
     <style>
-        html {
+        /* html {
             scroll-behavior: smooth;
         }
 
@@ -33,7 +44,7 @@
 
         [x-cloak] {
             display: none !important;
-        }
+        } */
     </style>
 </head>
 
@@ -84,6 +95,106 @@
 
     <!-- App JS -->
     <script src="/js/app.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        console.log("Vanilla JS script loaded and ready.");
+
+        // Function to handle the animation
+        function animateToCart (productImageSrc, productImageRect, cartIconRect) {
+            const floatingImage = document.createElement("img");
+            floatingImage.src = productImageSrc; // Set the product image source
+            floatingImage.style.position = "absolute";
+            floatingImage.style.top = `${productImageRect.top + window.scrollY}px`;
+            floatingImage.style.left = `${productImageRect.left + window.scrollX}px`;
+            floatingImage.style.width = `${productImageRect.width}px`;
+            floatingImage.style.height = `${productImageRect.height}px`;
+            floatingImage.style.transition = "all 0.8s ease";
+            floatingImage.style.zIndex = "1000";
+            floatingImage.style.pointerEvents = "none";
+            document.body.appendChild(floatingImage);
+
+            console.log("Floating image created:", floatingImage);
+
+            // Animate the floating image
+            requestAnimationFrame(() => {
+                floatingImage.style.top = `${cartIconRect.top + window.scrollY}px`;
+                floatingImage.style.left = `${cartIconRect.left + window.scrollX}px`;
+                floatingImage.style.width = "30px";
+                floatingImage.style.height = "30px";
+                floatingImage.style.opacity = "0.5";
+            });
+
+            // Cleanup after animation
+            floatingImage.addEventListener("transitionend", () => {
+                console.log("Animation complete. Removing floating image.");
+                floatingImage.remove();
+                const cartIcon = document.getElementById("cart-icon");
+                cartIcon.style.transform = "scale(1.2)";
+                setTimeout(() => {
+                    cartIcon.style.transform = "scale(1)";
+                }, 200);
+            });
+        }
+
+        // Function to add event listeners to buttons
+        function attachAddToCartListeners () {
+            const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
+
+            addToCartButtons.forEach((button) => {
+                if (!button.dataset.listenerAdded) {
+                    button.addEventListener("click", (event) => {
+                        console.log("Add to Cart button clicked.");
+
+                        const productContainer = event.target.closest("[data-product-id]");
+                        const productId = productContainer.getAttribute("data-product-id");
+                        console.log("Product ID:", productId);
+
+                        const productImage = productContainer.querySelector(".product-image");
+                        const cartIcon = document.getElementById("cart-icon");
+
+                        if (!productImage || !cartIcon) {
+                            console.error("Product image or cart icon not found.");
+                            return;
+                        }
+
+                        // Get positions of the product image and cart icon
+                        const productImageRect = productImage.getBoundingClientRect();
+                        const cartIconRect = cartIcon.getBoundingClientRect();
+
+                        // Fly the product image to the cart
+                        animateToCart(productImage.src, productImageRect, cartIconRect);
+                    });
+
+                    // Mark the button to avoid attaching duplicate listeners
+                    button.dataset.listenerAdded = true;
+                }
+            });
+        }
+
+        // Use a MutationObserver to detect dynamically added buttons
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.addedNodes.length > 0) {
+                    attachAddToCartListeners();
+                }
+            });
+        });
+
+        // Start observing the body for added nodes
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        // Initial attachment in case buttons are already in the DOM
+        attachAddToCartListeners();
+    });
+
+
+</script>
+
+
+
+
 </body>
 
 </html>
