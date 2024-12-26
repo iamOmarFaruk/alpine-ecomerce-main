@@ -117,10 +117,10 @@
 
             console.log("Floating image created:", floatingImage);
 
-            // Animate the floating image
+            // Animate the floating image, increased by 200px for top and left
             requestAnimationFrame(() => {
-                floatingImage.style.top = `${cartIconRect.top + window.scrollY}px`;
-                floatingImage.style.left = `${cartIconRect.left + window.scrollX}px`;
+                floatingImage.style.top = `${cartIconRect.top + window.scrollY + -130}px`;  // Increase by 200px for a further distance
+                floatingImage.style.left = `${cartIconRect.left + window.scrollX + -10}px`;  // Increase by 200px for a further distance
                 floatingImage.style.width = "30px";
                 floatingImage.style.height = "30px";
                 floatingImage.style.opacity = "0.5";
@@ -188,10 +188,7 @@
         // Initial attachment in case buttons are already in the DOM
         attachAddToCartListeners();
     });
-
-
 </script>
-
 
 
 
