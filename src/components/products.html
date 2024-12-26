@@ -11,10 +11,10 @@
       <template x-for="product in products" :key="product.id">
         <div :data-product-id="product.id" class="product-container">
           <!-- Product Card -->
-          <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+          <div class=" shadow-lg overflow-hidden">
             <!-- Product Image -->
             <div class="p-2">
-              <img :src="product.image" alt="Product Image" class="product-image rounded-lg w-full h-40 object-cover"
+              <img :src="product.image" alt="Product Image" class="product-image rounded-lg w-full object-cover"
                 src="https://placehold.co/300x200">
             </div>
 
@@ -34,7 +34,7 @@
               <div class="flex items-center gap-2">
                 <input type="number" class="border border-gray-300 p-2 rounded w-full sm:w-20" min="1"
                   x-model="product.quantity">
-                <span class="text-gray-700 font-bold text-lg md:text-1xl"
+                <span class="text-gray-700 font-bold text-lg md:text-xl"
                   x-text="'$'+ calculatePrice(product.price, product.quantity)"></span>
               </div>
             </div>
