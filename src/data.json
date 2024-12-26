@@ -11,7 +11,7 @@
     "quantity": 1,
     "id": 2,
     "name": "Broccoli",
-    "image": "/img/broccoli.webp",
+    "image": "/img/broccoli.png",
     "price": 3,
     "description": "Organic broccoli, rich in nutrients and great for steaming."
   },
@@ -76,7 +76,7 @@
     "quantity": 1,
     "id": 11,
     "name": "Cauliflower",
-    "image": "/img/Cauliflower.webp",
+    "image": "/img/Cauliflower.png",
     "price": 3,
     "description": "Fresh cauliflower, ideal for roasting, mashing, or making rice."
   },
@@ -100,7 +100,7 @@
     "quantity": 1,
     "id": 14,
     "name": "Sweet Corn",
-    "image": "/img/Sweet-Corn.webp",
+    "image": "/img/Sweet-Corn.png",
     "price": 3,
     "description": "Sweet and juicy corn, perfect for grilling or boiling."
   },
@@ -156,7 +156,7 @@
     "quantity": 1,
     "id": 21,
     "name": "Banana",
-    "image": "/img/Banana.webp",
+    "image": "/img/Banana.png",
     "price": 1,
     "description": "Sweet and creamy bananas, great for snacking or smoothies."
   }
