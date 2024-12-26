@@ -1,46 +1,47 @@
-<!-- Title Section -->
-<div class="text-center mb-8 px-4 md:px-0">
-  <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-3">Our Fresh Vegetable Collection</h2>
-  <p class="text-sm md:text-base text-gray-600">
-    Browse through our handpicked selection of farm-fresh vegetables, ensuring quality and taste in every bite.
-  </p>
-</div>
+<section class="py-10 md:py-20 bg-white">
+  <div class="container mx-auto text-center px-4">
+    <!-- Title Section -->
+    <h2 class="text-xl md:text-3xl font-bold text-gray-800 mb-4">Fresh & Organic Vegetables Delivered</h2>
+    <p class="text-xs md:text-base lg:text-lg text-gray-600 mb-8 md:mb-12">
+      Explore our variety of fresh, farm-grown vegetables. Bringing health and goodness to your table.
+    </p>
 
-<div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 md:px-0">
-  <template x-for="product in products" :key="product.id">
-    <div x-data="{ show: false }" x-init="setTimeout(() => show = true, 100 * product.id)">
-      <div x-show="show" x-transition:enter="transition-transform transition-opacity"
-        x-transition:enter-start="translate-y-2 opacity-0" x-transition:enter-end="translate-y-0 opacity-100">
-        <!-- Product Card -->
-        <div class="bg-gray-100 rounded-lg shadow-lg">
-          <!-- Product Image -->
-          <div class="p-2">
-            <img :src="product.image" alt="product image" class="rounded-lg w-full h-40 object-cover">
-          </div>
-
-          <!-- Card Body -->
-          <div class="relative -mt-5 bg-white bg-opacity-25 backdrop-blur-sm shadow-md rounded-lg min-h-[150px]">
-            <div class="p-4">
-              <h3 class="text-lg md:text-xl font-semibold text-gray-700" x-text="product.name"></h3>
-              <p class="text-sm md:text-base text-gray-700 mt-2" x-text="product.description"></p>
+    <!-- Products Section -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+      <template x-for="product in products" :key="product.id">
+        <div :data-product-id="product.id" class="product-container">
+          <!-- Product Card -->
+          <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+            <!-- Product Image -->
+            <div class="p-2">
+              <img :src="product.image" alt="Product Image" class="product-image rounded-lg w-full h-40 object-cover"
+                src="https://placehold.co/300x200">
             </div>
-          </div>
 
-          <!-- Card Footer -->
-          <div class="bg-gray-200 rounded-b p-3">
-            <form @submit.prevent class="flex justify-between items-center space-x-4">
-              <button class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+            <!-- Product Details -->
+            <div class="relative  bg-white bg-opacity-25 backdrop-blur-sm shadow-md rounded-lg p-4">
+              <h3 class="product-title text-lg md:text-xl font-semibold text-gray-700" x-text="product.name"></h3>
+              <p class="product-description text-sm md:text-base text-gray-700 mt-2" x-text="product.description"></p>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="bg-gray-200 rounded-b p-4 flex flex-col sm:flex-row justify-between gap-4">
+              <button
+                class="add-to-cart-btn bg-green-700 hover:bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded w-full sm:w-auto"
                 @click="addToCart(product.id, product.quantity)">
                 Add to Cart
               </button>
-              <input type="number" class="border border-gray-300 p-2 rounded w-20 text-center" min="1"
-                x-model="product.quantity">
-              <span class="text-gray-700 font-bold text-lg md:text-2xl"
-                x-text="'$'+ calculatePrice(product.price, product.quantity)"></span>
-            </form>
+              <div class="flex items-center gap-2">
+                <input type="number" class="border border-gray-300 p-2 rounded w-full sm:w-20" min="1"
+                  x-model="product.quantity">
+                <span class="text-gray-700 font-bold text-lg md:text-1xl"
+                  x-text="'$'+ calculatePrice(product.price, product.quantity)"></span>
+              </div>
+            </div>
           </div>
+          <!-- End Product Card -->
         </div>
-      </div>
+      </template>
     </div>
-  </template>
-</div>
+  </div>
+</section>
