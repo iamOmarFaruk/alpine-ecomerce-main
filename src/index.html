@@ -38,11 +38,19 @@
 </head>
 
 <body x-data="app" x-cloak class="relative">
+    <!-- Notification -->
+    <div x-html="(await axios.get('/components/addToCartNotification.html')).data" class="hidden"></div>
+
+    <!-- remove cart toast -->
+    <div x-html="(await axios.get('./components/removeFromCartToast.html')).data" class="hidden"></div>
+    <!-- remove cart toast close -->
+
+
+
     <!-- Navigation -->
     <div x-html="(await axios.get('/components/navigation.html')).data"></div>
 
-    <!-- Notification -->
-    <div x-html="(await axios.get('/components/addToCartNotification.html')).data"></div>
+  
 
     <!-- Main Container -->
     <div class="container mx-auto mt-20">
