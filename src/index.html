@@ -21,8 +21,7 @@
     <!-- Tailwind CSS -->
     <link rel="stylesheet" href="/output.css">
 
-    <!-- Include jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
    
 
 
@@ -96,13 +95,16 @@
     <!-- App JS -->
     <script src="/js/app.js"></script>
 
-
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        console.log("Vanilla JS script loaded and ready.");
 
         // Function to handle the animation
         function animateToCart (productImageSrc, productImageRect, cartIconRect) {
+            // Check screen size first and return if it's a small screen
+            const isMobile = window.innerWidth < 1025;
+            if (isMobile) return;  // Exit early for screens smaller than 1025px
+
+            // If it's a larger screen, proceed with creating the floating image and animation
             const floatingImage = document.createElement("img");
             floatingImage.src = productImageSrc; // Set the product image source
             floatingImage.style.position = "absolute";
@@ -115,12 +117,13 @@
             floatingImage.style.pointerEvents = "none";
             document.body.appendChild(floatingImage);
 
-            console.log("Floating image created:", floatingImage);
+            let offsetTop = -130;  // Default vertical offset
+            let offsetLeft = -10;   // Default horizontal offset
 
-            // Animate the floating image, increased by 200px for top and left
+            // Animate the floating image with adjusted offsets for desktop
             requestAnimationFrame(() => {
-                floatingImage.style.top = `${cartIconRect.top + window.scrollY + -130}px`;  // Increase by 200px for a further distance
-                floatingImage.style.left = `${cartIconRect.left + window.scrollX + -10}px`;  // Increase by 200px for a further distance
+                floatingImage.style.top = `${cartIconRect.top + window.scrollY + offsetTop}px`;
+                floatingImage.style.left = `${cartIconRect.left + window.scrollX + offsetLeft}px`;
                 floatingImage.style.width = "30px";
                 floatingImage.style.height = "30px";
                 floatingImage.style.opacity = "0.5";
@@ -128,7 +131,6 @@
 
             // Cleanup after animation
             floatingImage.addEventListener("transitionend", () => {
-                console.log("Animation complete. Removing floating image.");
                 floatingImage.remove();
                 const cartIcon = document.getElementById("cart-icon");
                 cartIcon.style.transform = "scale(1.2)";
@@ -145,17 +147,12 @@
             addToCartButtons.forEach((button) => {
                 if (!button.dataset.listenerAdded) {
                     button.addEventListener("click", (event) => {
-                        console.log("Add to Cart button clicked.");
 
                         const productContainer = event.target.closest("[data-product-id]");
-                        const productId = productContainer.getAttribute("data-product-id");
-                        console.log("Product ID:", productId);
-
                         const productImage = productContainer.querySelector(".product-image");
                         const cartIcon = document.getElementById("cart-icon");
 
                         if (!productImage || !cartIcon) {
-                            console.error("Product image or cart icon not found.");
                             return;
                         }
 
@@ -163,7 +160,7 @@
                         const productImageRect = productImage.getBoundingClientRect();
                         const cartIconRect = cartIcon.getBoundingClientRect();
 
-                        // Fly the product image to the cart
+                        // Fly the product image to the cart (only on larger screens)
                         animateToCart(productImage.src, productImageRect, cartIconRect);
                     });
 
@@ -189,8 +186,6 @@
         attachAddToCartListeners();
     });
 </script>
-
-
 
 </body>
 
