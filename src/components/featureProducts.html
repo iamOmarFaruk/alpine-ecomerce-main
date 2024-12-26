@@ -1,3 +1,4 @@
+<div class="container mx-auto">
 <section class="py-10 md:py-20 bg-white">
   <div class="container mx-auto text-center px-4">
     <!-- Title Section -->
@@ -7,6 +8,7 @@
     </p>
 
     <!-- Products Section -->
+    <!-- Products Section -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
       <template x-for="product in products.sort(() => 0.5 - Math.random()).slice(0, 4)" :key="product.id">
         <div :data-product-id="product.id" class="product-container">
@@ -14,12 +16,14 @@
           <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden">
             <!-- Product Image -->
             <div class="p-2">
-              <img :src="product.image" alt="Product Image" class="product-image rounded-lg w-full h-40 object-cover"
-                src="https://placehold.co/300x200">
+              <div class="relative flex justify-center align-middle w-full min-h-[250px]">
+                <img :src="product.image" alt="Product Image"
+                  class="product-image rounded-lg w-[130px] h-auto object-contain">
+              </div>
             </div>
 
             <!-- Product Details -->
-            <div class="relative  bg-white bg-opacity-25 backdrop-blur-sm shadow-md rounded-lg p-4">
+            <div class="relative bg-white bg-opacity-25 backdrop-blur-sm shadow-md rounded-lg p-4">
               <h3 class="product-title text-lg md:text-xl font-semibold text-gray-700" x-text="product.name"></h3>
               <p class="product-description text-sm md:text-base text-gray-700 mt-2" x-text="product.description"></p>
             </div>
@@ -35,7 +39,8 @@
                 <input type="number" class="border border-gray-300 p-2 rounded w-full sm:w-20" min="1"
                   x-model="product.quantity">
                 <span class="text-gray-700 font-bold text-lg md:text-xl"
-                  x-text="'$'+ calculatePrice(product.price, product.quantity)"></span>
+                  x-text="'$'+ calculatePrice(product.price, product.quantity)">
+                </span>
               </div>
             </div>
           </div>
@@ -43,5 +48,7 @@
         </div>
       </template>
     </div>
+
   </div>
 </section>
+</div>
