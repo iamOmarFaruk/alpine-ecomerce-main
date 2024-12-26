@@ -1,16 +1,33 @@
-<nav class="bg-green-800 text-white p-4 flex justify-between fixed top-0 left-0 right-0 z-50">
-  <div class="w-full max-w-[1270px] mx-auto py-2 flex justify-between">
+<nav class="bg-green-800 text-white p-4 fixed top-0 left-0 right-0 z-50 py-7" x-data="{ isMobileNavOpen: false }">
+  <div class="w-full max-w-[1270px] mx-auto flex justify-between items-center">
     <!-- Left side nav -->
     <div class="flex items-center">
-      <a @click="navigate('home')" class="text-3xl font-bold cursor-pointer" x-text="apptitle"></a>
+      <a @click="navigate('home')" class="text-2xl md:text-3xl font-bold cursor-pointer" x-text="apptitle"></a>
     </div>
 
-    <!-- Right side nav -->
-    <div class="flex items-center space-x-4">
+    <!-- Hamburger Menu for Mobile -->
+    <div class="md:hidden flex items-center">
+      <!-- Cart Icon -->
+      <div class="relative mr-8">
+        <a class="cursor-pointer hover:text-gray-300 transition-colors"
+          :class="{'underline font-bold': currentScreen === 'cart'}" @click="navigate('cart')">
+          <i class="fas fa-shopping-cart text-2xl"></i>
+        </a>
+        <span x-show="cartItems.length > 0"
+          class="absolute -top-2 -right-2 bg-[#ef8203] text-white rounded-full text-xs font-bold px-2 py-1"
+          x-text="cartItems.length"></span>
+      </div>
+      <!-- Cart Icon -->
+
+      <button @click="isMobileNavOpen = !isMobileNavOpen" class="text-3xl focus:outline-none">
+        <i :class="isMobileNavOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
+      </button>
+    </div>
+
+    <!-- Right side nav (Desktop) -->
+    <div class="hidden md:flex items-center space-x-4">
       <a class="cursor-pointer hover:text-gray-300 transition-colors"
         :class="{'underline font-bold': currentScreen === 'home'}" @click="navigate('home')">Home</a>
-
-
       <a class="cursor-pointer hover:text-gray-300 transition-colors"
         :class="{'underline font-bold': currentScreen === 'about'}" @click="navigate('about')">About</a>
       <a class="cursor-pointer hover:text-gray-300 transition-colors"
@@ -31,7 +48,37 @@
           x-text="cartItems.length"></span>
       </div>
       <!-- Cart Icon -->
+    </div>
+  </div>
 
+  <!-- Mobile Navigation -->
+  <div class="fixed inset-0 bg-green-800 text-white transform transition-transform"
+    :class="isMobileNavOpen ? 'translate-x-0' : '-translate-x-full'" style="z-index: 49;">
+    <div class="relative h-full p-6">
+      <!-- Shop Name (Left Aligned) -->
+      <div class="absolute top-4 left-4 text-2xl font-bold">
+        <span x-text="apptitle"></span>
+      </div>
+
+      <!-- Close Button -->
+      <button @click="isMobileNavOpen = false" class="absolute top-4 right-4 text-3xl focus:outline-none">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- Menu Items -->
+      <div class="flex flex-col items-center justify-center h-full space-y-6">
+        <a class="text-xl font-bold cursor-pointer hover:underline"
+          @click="navigate('home'); isMobileNavOpen = false">Home</a>
+        <a class="text-xl font-bold cursor-pointer hover:underline"
+          @click="navigate('about'); isMobileNavOpen = false">About</a>
+        <a class="text-xl font-bold cursor-pointer hover:underline"
+          @click="navigate('shop'); isMobileNavOpen = false">Shop</a>
+        <a class="text-xl font-bold cursor-pointer hover:underline"
+          @click="navigate('faq'); isMobileNavOpen = false">FAQ</a>
+        <a class="text-xl font-bold cursor-pointer hover:underline"
+          @click="navigate('contact'); isMobileNavOpen = false">Contact</a>
+      
+      </div>
     </div>
   </div>
 </nav>
