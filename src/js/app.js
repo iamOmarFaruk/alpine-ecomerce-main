@@ -139,14 +139,14 @@ addEventListener("alpine:init", () => {
       }
     },
 
-    calculateTotalItemsFromCart() {
-      let totalItems = 0;
-      this.cartItems.forEach((product) => {
-        totalItems += product.quantity;
-      });
-
-      return totalItems;
-    },
+   calculateTotalItemsFromCart() {
+  let totalItems = 0;
+  this.cartItems.forEach((product) => {
+    totalItems += parseInt(product.quantity, 10); // Ensure quantity is treated as a number
+  });
+  return totalItems;
+}
+,
 
     calculateTotalPriceFromCart() {
       let totalPrice = 0;
