@@ -61,6 +61,11 @@ addEventListener("alpine:init", () => {
       this.currentScreen = screen; // Update current screen
       localStorage.setItem("currentScreen", screen); // Save to localStorage
       this.updateTitle(); // Dynamically update the title
+      // Scroll to the top of the page
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth", // Smooth scrolling effect
+      });
     },
 
     apptitle: "Alpine Shop",
