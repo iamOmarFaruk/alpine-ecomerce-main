@@ -5,9 +5,7 @@
      x-transition:enter-end="translate-y-0 opacity-100">
 
 
-  <!-- remove cart toast -->
-  <div x-html="(await axios.get('./components/removeFromCartToast.html')).data"></div>
-  <!-- remove cart toast close -->
+
 
 
   <!-- Hero section with background image and soft overlay -->
@@ -18,74 +16,106 @@
 
 <div class="py-10 md:py-20 min-h-screen">
 
+
+
+
+
   <!-- Shopping Cart Section -->
   <div class="container mx-auto p-6 bg-white rounded-lg shadow-sm" x-show="cartItems.length > 0">
-    <!-- Table -->
-    <table class="table-auto w-full border-collapse border border-gray-300">
-      <!-- Table Header -->
-      <thead class="bg-green-800 text-white">
-        <tr>
-          <th class="px-6 py-3 text-left text-sm font-semibold">Product</th>
-          <th class="px-6 py-3 text-left text-sm font-semibold">Description</th>
-          <th class="px-6 py-3 text-left text-sm font-semibold">Price</th>
-          <th class="px-6 py-3 text-left text-sm font-semibold">Quantity</th>
-          <th class="px-6 py-3 text-left text-sm font-semibold">Total Price</th>
-          <th class="px-6 py-3 text-left text-sm font-semibold">Action</th>
-        </tr>
-      </thead>
-
-      <!-- Table Body -->
-      <tbody>
-        <template x-for="product in cartItems" :key="product.id">
-          <tr class="hover:bg-gray-50 border-b">
-            <!-- Product Name with Image -->
-            <td class="px-6 py-4">
-              <div class="flex items-center space-x-3">
-                <img :src="product.image" alt="Product Image" class="h-12 w-12 rounded shadow">
-                <span x-text="product.name" class="font-medium text-gray-800"></span>
-              </div>
-            </td>
-
-            <!-- Product Description -->
-            <td class="px-6 py-4 text-gray-600" x-text="product.description"></td>
-
-            <!-- Product Price -->
-            <td class="px-6 py-4 text-gray-800 font-semibold" x-text="'$' + product.price"></td>
-
-            <!-- Quantity Selector -->
-            <td class="px-6 py-4">
-              <input type="number" class="border border-gray-300 p-2 rounded w-16 text-center"
-                x-model="product.quantity" x-on:change="updateQuantityInCart(product.id, product.quantity)">
-            </td>
-
-            <!-- Total Price -->
-            <td class="px-6 py-4 font-semibold text-gray-800"
-              x-text="'$' + calculatePrice(product.price, product.quantity)"></td>
-
-            <!-- Remove Button -->
-            <td class="px-6 py-4">
-              <button class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded"
-                @click="removeFromCart(product.id)">
-                Remove
-              </button>
-            </td>
+    <!-- Responsive Table -->
+    <div class="hidden md:block">
+      <table class="table-auto w-full border-collapse border border-gray-300">
+        <!-- Table Header -->
+        <thead class="bg-green-800 text-white">
+          <tr>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Product</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Description</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Price</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Quantity</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Total Price</th>
+            <th class="px-6 py-3 text-left text-sm font-semibold">Action</th>
           </tr>
-        </template>
-      </tbody>
-    </table>
-
+        </thead>
+  
+        <!-- Table Body -->
+        <tbody>
+          <template x-for="product in cartItems" :key="product.id">
+            <tr class="hover:bg-gray-50 border-b">
+              <!-- Product Name with Image -->
+              <td class="px-6 py-4">
+                <div class="flex items-center space-x-3">
+                  <img :src="product.image" alt="Product Image" class="h-12 w-12 rounded shadow">
+                  <span x-text="product.name" class="font-medium text-gray-800"></span>
+                </div>
+              </td>
+  
+              <!-- Product Description -->
+              <td class="px-6 py-4 text-gray-600" x-text="product.description"></td>
+  
+              <!-- Product Price -->
+              <td class="px-6 py-4 text-gray-800 font-semibold" x-text="'$' + product.price"></td>
+  
+              <!-- Quantity Selector -->
+              <td class="px-6 py-4">
+                <input type="number" class="border border-gray-300 p-2 rounded w-16 text-center"
+                  x-model="product.quantity" x-on:change="updateQuantityInCart(product.id, product.quantity)">
+              </td>
+  
+              <!-- Total Price -->
+              <td class="px-6 py-4 font-semibold text-gray-800"
+                x-text="'$' + calculatePrice(product.price, product.quantity)"></td>
+  
+              <!-- Remove Button -->
+              <td class="px-6 py-4">
+                <button class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded"
+                  @click="removeFromCart(product.id)">
+                  Remove
+                </button>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Mobile Layout -->
+    <div class="md:hidden space-y-4">
+      <template x-for="product in cartItems" :key="product.id">
+        <div class="border rounded-lg p-4 shadow-sm bg-gray-50">
+          <div class="flex items-center space-x-3 mb-4">
+            <img :src="product.image" alt="Product Image" class="h-16 w-16 rounded shadow">
+            <div>
+              <p class="font-medium text-gray-800" x-text="product.name"></p>
+              <p class="text-sm text-gray-600" x-text="product.description"></p>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <p class="text-sm text-gray-800">Price: <span x-text="'$' + product.price"></span></p>
+            <p class="text-sm text-gray-800">Quantity:
+              <input type="number" class="border border-gray-300 p-2 rounded w-16 text-center" x-model="product.quantity"
+                x-on:change="updateQuantityInCart(product.id, product.quantity)">
+            </p>
+            <p class="text-sm text-gray-800 font-semibold">Total: <span
+                x-text="'$' + calculatePrice(product.price, product.quantity)"></span></p>
+          </div>
+          <button class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded w-full mt-4"
+            @click="removeFromCart(product.id)">
+            Remove
+          </button>
+        </div>
+      </template>
+    </div>
+  
     <!-- Total Price -->
-    <div class="flex justify-end gap-10 items-center mt-6">
-      <p class="text-xl font-semibold text-gray-800">
+    <div class="flex flex-col md:flex-row justify-between items-center mt-6">
+      <p class="text-xl font-semibold text-gray-800 mb-4 md:mb-0">
         Total Price: <span x-text="'$' + calculateTotalPriceFromCart()"></span>
       </p>
-      <button class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded" @click="navigate('checkout')">
+      <button class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
+        @click="navigate('checkout')">
         Go to Checkout
       </button>
     </div>
-
-
-
   </div>
 
 

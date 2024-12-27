@@ -3,7 +3,7 @@
     "quantity": 1,
     "id": 1,
     "name": "Carrot",
-    "image": "https://images.unsplash.com/photo-1471193945509-9ad0617afabf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/carrot.png",
     "price": 2,
     "description": "Fresh and crunchy carrots, perfect for salads and cooking."
   },
@@ -11,7 +11,7 @@
     "quantity": 1,
     "id": 2,
     "name": "Broccoli",
-    "image": "https://plus.unsplash.com/premium_photo-1702403157642-ef193ed559ce?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/broccoli.png",
     "price": 3,
     "description": "Organic broccoli, rich in nutrients and great for steaming."
   },
@@ -19,23 +19,16 @@
     "quantity": 1,
     "id": 3,
     "name": "Spinach",
-    "image": "https://images.unsplash.com/photo-1634731201932-9bd92839bea2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/spinach.png",
     "price": 1,
     "description": "Leafy green spinach, perfect for salads and smoothies."
   },
   {
     "quantity": 1,
-    "id": 4,
-    "name": "Potato",
-    "image": "https://images.unsplash.com/photo-1675501344642-92d35d90fe51?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 2,
-    "description": "Fresh potatoes, versatile for frying, baking, or mashing."
-  },
-  {
-    "quantity": 1,
     "id": 5,
     "name": "Tomato",
-    "image": "https://images.unsplash.com/photo-1534940519139-f860fb3c6e38?q=80&w=2934&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/tomato.png",
+    
     "price": 2,
     "description": "Juicy red tomatoes, ideal for salads, sandwiches, or sauces."
   },
@@ -43,7 +36,7 @@
     "quantity": 1,
     "id": 6,
     "name": "Cucumber",
-    "image": "https://images.unsplash.com/photo-1462536546956-beef6399d8cf?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/cucumber.png",
     "price": 1,
     "description": "Crisp and refreshing cucumbers, great for salads and pickles."
   },
@@ -51,7 +44,7 @@
     "quantity": 1,
     "id": 7,
     "name": "Capsicum",
-    "image": "https://images.unsplash.com/photo-1621953723422-6023013f659d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/capsicum.png",
     "price": 3,
     "description": "Bright and crunchy bell peppers, perfect for grilling or stir-fries."
   },
@@ -59,7 +52,7 @@
     "quantity": 1,
     "id": 8,
     "name": "Onion",
-    "image": "https://images.unsplash.com/photo-1720240462804-6b4216e1ac5e?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/onion.png",
     "price": 2,
     "description": "Fresh onions, great for cooking or adding flavor to dishes."
   },
@@ -67,7 +60,7 @@
     "quantity": 1,
     "id": 9,
     "name": "Garlic",
-    "image": "https://images.unsplash.com/reserve/E6Ai8EoSQp2unXHEd1GA_GarlicHarvest.jpg?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/garlic.png",
     "price": 1,
     "description": "Aromatic garlic cloves, perfect for enhancing flavors in dishes."
   },
@@ -75,7 +68,7 @@
     "quantity": 1,
     "id": 10,
     "name": "Zucchini",
-    "image": "https://images.unsplash.com/photo-1687199126774-bc777f6d7c6e?q=80&w=3379&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Zucchini.png",
     "price": 2,
     "description": "Versatile zucchini, great for grilling, roasting, or spiralizing."
   },
@@ -83,7 +76,7 @@
     "quantity": 1,
     "id": 11,
     "name": "Cauliflower",
-    "image": "https://plus.unsplash.com/premium_photo-1711684803510-6f05fa515378?q=80&w=3869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Cauliflower.png",
     "price": 3,
     "description": "Fresh cauliflower, ideal for roasting, mashing, or making rice."
   },
@@ -91,7 +84,7 @@
     "quantity": 1,
     "id": 12,
     "name": "Eggplant",
-    "image": "https://images.unsplash.com/photo-1683543122945-513029986574?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Eggplant.png",
     "price": 2,
     "description": "Tender and tasty eggplants, perfect for roasting or grilling."
   },
@@ -99,7 +92,7 @@
     "quantity": 1,
     "id": 13,
     "name": "Cabbage",
-    "image": "https://images.unsplash.com/photo-1697346327617-c333613a349a?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Cabbage.png",
     "price": 2,
     "description": "Fresh and crunchy cabbage, great for salads and stir-fries."
   },
@@ -107,7 +100,7 @@
     "quantity": 1,
     "id": 14,
     "name": "Sweet Corn",
-    "image": "https://images.unsplash.com/photo-1649251037465-72c9d378acb6?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Sweet-Corn.png",
     "price": 3,
     "description": "Sweet and juicy corn, perfect for grilling or boiling."
   },
@@ -115,7 +108,7 @@
     "quantity": 1,
     "id": 15,
     "name": "Pumpkin",
-    "image": "https://images.unsplash.com/photo-1506917728037-b6af01a7d403?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Pumpkin.png",
     "price": 4,
     "description": "Rich and flavorful pumpkin, ideal for soups, pies, or roasting."
   },
@@ -123,7 +116,7 @@
     "quantity": 1,
     "id": 16,
     "name": "Peas",
-    "image": "https://images.unsplash.com/photo-1668548205372-1becd11b5641?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Peas.png",
     "price": 2,
     "description": "Sweet green peas, perfect for soups, salads, or stir-fries."
   },
@@ -131,7 +124,7 @@
     "quantity": 1,
     "id": 17,
     "name": "Radish",
-    "image": "https://images.unsplash.com/photo-1583001591925-430f5ff0efa6?q=80&w=3862&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Radish.png",
     "price": 1,
     "description": "Crisp radishes, great for salads or as a crunchy snack."
   },
@@ -139,7 +132,7 @@
     "quantity": 1,
     "id": 18,
     "name": "Beetroot",
-    "image": "https://images.unsplash.com/photo-1627738668643-1c166aecbf3d?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Beetroot.png",
     "price": 2,
     "description": "Earthy beetroot, perfect for salads, juices, or roasting."
   },
@@ -147,7 +140,7 @@
     "quantity": 1,
     "id": 19,
     "name": "Green Beans",
-    "image": "https://images.unsplash.com/photo-1632640109749-b97e1e0e6c96?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/green-beans.png",
     "price": 2,
     "description": "Tender green beans, great for steaming, stir-fries, or casseroles."
   },
@@ -155,88 +148,17 @@
     "quantity": 1,
     "id": 20,
     "name": "Lettuce",
-    "image": "https://images.unsplash.com/photo-1602192103201-d763907bc41b?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "image": "/img/Lettuce.png",
     "price": 1,
     "description": "Fresh and crisp lettuce, perfect for salads and sandwiches."
   },
   {
     "quantity": 1,
     "id": 21,
-    "name": "Mushroom",
-    "image": "https://images.unsplash.com/photo-1571074635691-b910c7a5cdbb?q=80&w=3903&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 3,
-    "description": "Earthy mushrooms, versatile for stir-fries, soups, or pizzas."
-  },
-  {
-    "quantity": 1,
-    "id": 22,
-    "name": "Celery",
-    "image": "https://plus.unsplash.com/premium_photo-1700773416772-50a83a730f23?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 2,
-    "description": "Crunchy celery, ideal for salads, soups, or healthy snacks."
-  },
-  {
-    "quantity": 1,
-    "id": 23,
-    "name": "Turnip",
-    "image": "https://images.unsplash.com/photo-1631909808696-969b7aa7ade9?q=80&w=3032&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 2,
-    "description": "Fresh turnips, perfect for soups, stews, or roasting."
-  },
-  {
-    "quantity": 1,
-    "id": 24,
-    "name": "Okra",
-    "image": "https://images.unsplash.com/photo-1697896774593-c4af08aa632c?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 2,
-    "description": "Slimy yet tasty okra, ideal for frying or adding to curries."
-  },
-  {
-    "quantity": 1,
-    "id": 25,
-    "name": "Leek",
-    "image": "https://plus.unsplash.com/premium_photo-1725467478535-16f6c717acae?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 2,
-    "description": "Delicate and mild leeks, great for soups or sautéing."
-  },
-  {
-    "quantity": 1,
-    "id": 26,
-    "name": "Chili Pepper",
-    "image": "https://images.unsplash.com/photo-1697463350454-63ccf6201b19?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "name": "Banana",
+    "image": "/img/Banana.png",
     "price": 1,
-    "description": "Spicy chili peppers, perfect for adding heat to dishes."
-  },
-  {
-    "quantity": 1,
-    "id": 27,
-    "name": "Kale",
-    "image": "https://plus.unsplash.com/premium_photo-1702286619408-f154638815ff?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 3,
-    "description": "Nutrient-packed kale, great for salads, smoothies, or chips."
-  },
-  {
-    "quantity": 1,
-    "id": 28,
-    "name": "Asparagus",
-    "image": "https://images.unsplash.com/photo-1418669112725-fb499fb61127?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 4,
-    "description": "Tender asparagus spears, perfect for grilling or steaming."
-  },
-  {
-    "quantity": 1,
-    "id": 29,
-    "name": "Bell Pepper",
-    "image": "https://images.unsplash.com/photo-1655558132652-6bed5dee2ee8?q=80&w=3870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 3,
-    "description": "Sweet bell peppers, ideal for stuffing, grilling, or sautéing."
-  },
-  {
-    "quantity": 1,
-    "id": 30,
-    "name": "Artichoke",
-    "image": "https://images.unsplash.com/photo-1531818555890-57b9fed23f36?q=80&w=3869&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "price": 4,
-    "description": "Delicious artichokes, perfect for steaming or making dips."
+    "description": "Sweet and creamy bananas, great for snacking or smoothies."
   }
+  
 ]
