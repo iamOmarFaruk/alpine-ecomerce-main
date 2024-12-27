@@ -9,7 +9,7 @@
 
     <!-- Products Section -->
     <!-- Products Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       <template x-for="product in products.sort(() => 0.5 - Math.random()).slice(0, 4)" :key="product.id">
         <div :data-product-id="product.id" class="product-container">
           <!-- Product Card -->
@@ -27,15 +27,16 @@
             </div>
 
             <!-- Card Footer -->
-            <div class="bg-gray-200 rounded-b p-4 flex flex-col sm:flex-row justify-between gap-4">
+            <div class="bg-gray-200 rounded-b p-4 flex flex-col sm:flex-row justify-between gap-2">
               <button
                 class="add-to-cart-btn bg-green-700 hover:bg-green-600 text-white text-sm font-semibold py-2 px-4 rounded w-full sm:w-auto"
                 @click="addToCart(product.id, product.quantity)">
                 Add to Cart
               </button>
               <div class="flex items-center gap-2">
-                <input type="number" class="border border-gray-300 p-2 rounded w-full sm:w-20" min="1"
+                <input type="number" class="border border-gray-300 p-2 rounded w-full sm:w-20 max-w-[55px]" min="1"
                   x-model="product.quantity">
+                   <span class="text-sm text-gray-700 font-medium">kg</span> <!-- Add unit like "kg" or "gram" -->
                 <span class="text-gray-700 font-bold text-lg md:text-xl"
                   x-text="'$'+ calculatePrice(product.price, product.quantity)">
                 </span>
