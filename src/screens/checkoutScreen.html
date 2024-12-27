@@ -8,72 +8,161 @@
 
 
   <!-- end of hero section -->
-  <div class="py-10 md:py-20">
-    <div class="mx-auto px-4">
-      <!-- Shipping Information Form -->
-      <div class="bg-gray-100 rounded-lg shadow-md p-6 my-6">
-        <h2 class="text-xl md:text-2xl font-bold text-green-800 mb-4">Shipping Information</h2>
-        <form>
-          <div class="mb-4">
-            <label for="name" class="block text-gray-600 font-medium mb-2">Name</label>
-            <input type="text" id="name" name="name"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-              placeholder="John Doe">
-          </div>
-          <div class="mb-4">
-            <label for="email" class="block text-gray-600 font-medium mb-2">Email</label>
-            <input type="email" id="email" name="email"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-              placeholder="example@example.com">
-          </div>
-          <div class="mb-4">
-            <label for="phone" class="block text-gray-600 font-medium mb-2">Phone</label>
-            <input type="tel" id="phone" name="phone"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-              placeholder="(123) 456-7890">
-          </div>
-          <div class="mb-4">
-            <label for="address" class="block text-gray-600 font-medium mb-2">Address</label>
-            <textarea id="address" name="address"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-              rows="3" placeholder="123 Main St, City, Country"></textarea>
-          </div>
-        </form>
-      </div>
+<div class="py-10 md:py-20">
+  <div class="mx-auto px-4">
 
-      <!-- Payment Information Form -->
-      <div class="bg-gray-100 rounded-lg shadow-md p-6 my-6">
-        <h2 class="text-xl md:text-2xl font-bold text-green-800 mb-4">Payment Information</h2>
-        <form>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            <!-- Credit Card Number -->
-            <div class="md:col-span-2">
-              <label for="cardNumber" class="block text-gray-600 font-medium mb-2">Credit Card Number</label>
-              <input type="text" id="cardNumber" name="cardNumber"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-                placeholder="**** **** **** ****">
-            </div>
-            <!-- Security Code -->
-            <div>
-              <label for="securityCode" class="block text-gray-600 font-medium mb-2">Security Code (CVV)</label>
-              <input type="text" id="securityCode" name="securityCode"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-                placeholder="123">
-            </div>
-          </div>
-          <div class="mb-4">
-            <label for="expiryDate" class="block text-gray-600 font-medium mb-2">Expiry Date</label>
-            <input type="text" id="expiryDate" name="expiryDate"
-              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
-              placeholder="MM/YY">
-          </div>
-        </form>
-      </div>
-
-      <!-- Place Order Button -->
-      <button class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full md:w-auto">
-        Place Order
-      </button>
+    <!-- Shipping Information Form -->
+    <div class="bg-gray-100 rounded-lg shadow-md p-6 my-6">
+      <h2 class="text-xl md:text-2xl font-bold text-green-800 mb-4">Shipping Information</h2>
+      <form>
+        <div class="mb-4">
+          <label for="name" class="block text-gray-600 font-medium mb-2">Name</label>
+          <input type="text" id="name" name="name"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+            placeholder="John Doe">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-gray-600 font-medium mb-2">Email</label>
+          <input type="email" id="email" name="email"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+            placeholder="example@example.com">
+        </div>
+        <div class="mb-4">
+          <label for="phone" class="block text-gray-600 font-medium mb-2">Phone</label>
+          <input type="tel" id="phone" name="phone"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+            placeholder="(123) 456-7890">
+        </div>
+        <div class="mb-4">
+          <label for="address" class="block text-gray-600 font-medium mb-2">Address</label>
+          <textarea id="address" name="address"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+            rows="3" placeholder="123 Main St, City, Country"></textarea>
+        </div>
+      </form>
     </div>
 
+    <!-- Order Summary -->
+  <div class="bg-gray-100 rounded-lg shadow-md p-6 my-6">
+    <h2 class="text-xl md:text-2xl font-bold text-green-800 mb-4">Order Summary</h2>
+    <div x-show="cartItems.length == 0">
+      <p class="text-gray-600">You don't have any products in your cart.</p>
+      <p class="text-green-800 mt-2">
+        Please add some <span class="cursor-pointer font-bold underline" @click="currentScreen='shop'">products</span>
+        first!
+      </p>
+    </div>
+    <div x-show="cartItems.length > 0">
+      <h4 class="my-4 text-gray-800">You Added <strong class="text-green-800"><span
+            x-text="calculateTotalItemsFromCart()"></span></strong> products</h4>
+  
+      <!-- Table for Desktop -->
+      <div class="hidden md:block overflow-x-auto">
+        <table class="w-full border-collapse rounded-lg overflow-hidden shadow">
+          <thead>
+            <tr class="bg-green-800 text-white text-left">
+              <th class="px-4 py-3">Product</th>
+              <th class="px-4 py-3">Description</th>
+              <th class="px-4 py-3">Price</th>
+              <th class="px-4 py-3">Quantity</th>
+              <th class="px-4 py-3">Total Price</th>
+              <th class="px-4 py-3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <template x-for="product in cartItems" :key="product.id">
+              <tr class="border-t hover:bg-gray-50">
+                <td class="border px-4 py-3 flex items-center space-x-3">
+                  <img :src="product.image" alt="Product Image" class="h-12 w-12 rounded shadow">
+                  <span class="font-medium text-gray-800" x-text="product.name"></span>
+                </td>
+                <td class="border px-4 py-3 text-gray-600" x-text="product.description"></td>
+                <td class="border px-4 py-3 text-gray-800 font-semibold" x-text="'$' + product.price"></td>
+                <td class="border px-4 py-3">
+                  <input type="number" class="border border-gray-300 p-2 rounded w-16 text-center"
+                    x-model="product.quantity" x-on:change="updateQuantityInCart(product.id, product.quantity)">
+                </td>
+                <td class="border px-4 py-3 font-semibold text-gray-800"
+                  x-text="'$' + calculatePrice(product.price, product.quantity)"></td>
+                <td class="border px-4 py-3">
+                  <button class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded"
+                    @click="removeFromCart(product.id)">
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Card Layout for Mobile -->
+      <div class="block md:hidden space-y-4">
+        <template x-for="product in cartItems" :key="product.id">
+          <div class="border rounded-lg p-4 shadow-sm bg-white">
+            <div class="flex items-center space-x-3 mb-3">
+              <img :src="product.image" alt="Product Image" class="h-16 w-16 rounded shadow">
+              <div>
+                <p class="font-medium text-gray-800" x-text="product.name"></p>
+                <p class="text-sm text-gray-600" x-text="product.description"></p>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <p class="text-sm text-gray-800">Price: <span x-text="'$' + product.price"></span></p>
+              <p class="text-sm text-gray-800">Quantity:
+                <input type="number" class="border border-gray-300 p-2 rounded w-16 text-center"
+                  x-model="product.quantity" x-on:change="updateQuantityInCart(product.id, product.quantity)">
+              </p>
+              <p class="text-sm text-gray-800">Total: <span
+                  x-text="'$' + calculatePrice(product.price, product.quantity)"></span></p>
+              <button class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded"
+                @click="removeFromCart(product.id)">Remove</button>
+            </div>
+          </div>
+        </template>
+      </div>
+  
+      <div class="flex flex-col md:flex-row justify-between items-center mt-6">
+        <p class="text-lg font-medium text-gray-800">
+          Total Price: <strong class="text-green-800 text-xl" x-text="'$' + calculateTotalPriceFromCart()"></strong>
+        </p>
+       
+      </div>
+    </div>
   </div>
+
+
+
+    <!-- Payment Information Form -->
+    <div class="bg-gray-100 rounded-lg shadow-md p-6 my-6">
+      <h2 class="text-xl md:text-2xl font-bold text-green-800 mb-4">Payment Information</h2>
+      <form>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <div class="md:col-span-2">
+            <label for="cardNumber" class="block text-gray-600 font-medium mb-2">Credit Card Number</label>
+            <input type="text" id="cardNumber" name="cardNumber"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+              placeholder="**** **** **** ****">
+          </div>
+          <div>
+            <label for="securityCode" class="block text-gray-600 font-medium mb-2">Security Code (CVV)</label>
+            <input type="text" id="securityCode" name="securityCode"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+              placeholder="123">
+          </div>
+        </div>
+        <div class="mb-4">
+          <label for="expiryDate" class="block text-gray-600 font-medium mb-2">Expiry Date</label>
+          <input type="text" id="expiryDate" name="expiryDate"
+            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-800 focus:outline-none"
+            placeholder="MM/YY">
+        </div>
+      </form>
+    </div>
+
+    <!-- Place Order Button -->
+    <button class="bg-green-700 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full md:w-auto">
+      Place Order
+    </button>
+  </div>
+</div>
