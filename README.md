@@ -3,7 +3,8 @@
 
 Welcome to my fun project! This single-page e-commerce site is built with **Alpine.js**, **Tailwind CSS**, and **Axios**, showcasing how far creativity can take you with simple tools. 🚀
 
-<a href="https://alpinejsshope.omarfaruk.dev/" target="_blank">Live Link - https://alpinejsshope.omarfaruk.dev/</a>
+[Live Link – https://alpinejsshope.omarfaruk.dev/](https://alpinejsshope.omarfaruk.dev/)
+
 
 
 ![Alpine E-commerce Screenshot](https://github.com/iamOmarFaruk/alpine-ecomerce-main/blob/main/screenshoot.png?raw=true)
